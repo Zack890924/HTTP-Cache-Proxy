@@ -4,12 +4,15 @@
 
 class connHandler {
     public:
-        connHandler();
+        connHandler(int clientFd);
         ~connHandler();
+        void handleConnection();
+        void processGET(const Request &req, int reqId);
     private:
         int clientFd;
-        std::string clientIp;
-    public:
+        static std::atomic<int> requestCounter;
+    
+
 
 
         
