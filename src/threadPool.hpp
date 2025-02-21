@@ -9,6 +9,7 @@
 #include <functional>
 
 
+
 class ThreadPool{
     public:
         explicit ThreadPool(size_t threadCount);
@@ -17,19 +18,19 @@ class ThreadPool{
         template<class F>
         void enqueue(F&& task){
             {
-                std::unique_lock<std::mutex> lock(_queueMutex);
-                _tasks.emplace(std::forward<F>(task));
+                std::unique_lock<std::mutex> lock(queueMutex);
+                tasks.emplace(std::forward<F>(task));
             }
-            _condition.notify_one();
+            condition.notify_one();
         }
         
     private:
-        std::vector<std::thread> _workers;
-        std::queue<std::function<void()>> _tasks;
+        std::vector<std::thread> workers;
+        std::queue<std::function<void()>> tasks;
 
-        std::mutex _queueMutex;
-        std::condition_variable _condition;
-        bool _stop;
+        std::mutex queueMutex;
+        std::condition_variable condition;
+        bool stop;
 
 };
 

@@ -4,21 +4,34 @@
 #define SERVER_HPP
 
 
-namespace http
-{
-    class ProxyServer{
-        private:
-            int port_;
-            int serverFd;
 
-        public: 
-            ProxyServer(int port);
-            ~ProxyServer();
+class Server{
+    private:
+        int port;
+        int serverFd;
 
-            void setUpSocket();
-    };
+        void closeServer(int fd);
+        static void signalHandler(int signum);
 
-}
+
+    public: 
+        explicit Server(int port);
+        ~Server();
+
+        int get_port() const {
+            return port;
+        }
+    
+        int get_serverFd() const {
+            return serverFd;
+        }
+    
+        void init();
+        int acceptConnection(sockaddr_in &clientAddr, socklen_t &clientAddrSize);
+        static void setUpSignalHandler();
+};
+
+
 
 
 #endif
