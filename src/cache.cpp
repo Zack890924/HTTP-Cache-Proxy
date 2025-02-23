@@ -16,17 +16,19 @@ Cache::Cache(std::chrono::system_clock::time_point expireTime, bool mustRevalida
 
 
 
-bool Cache::isExpired(){
+bool Cache::isExpired() const{
     return std::chrono::system_clock::now() > expireTime;
 }
 
 
-std::string Cache::getExpireTime(){
+std::string Cache::getExpireTime() const{
     std::time_t expireTime_t = std::chrono::system_clock::to_time_t(expireTime);
     //time -> string
     std::string expireTimeStr = std::ctime(&expireTime_t);
     //remove \n
-    expireTimeStr.pop_back();
+    if(!expireTimeStr.empty() && expireTimeStr.back() == '\n'){
+        expireTimeStr.pop_back();
+    }
     return expireTimeStr;
 }
 

@@ -15,8 +15,8 @@ class Cache{
         Cache();
         Cache(std::chrono::system_clock::time_point expireTime, bool mustRevalidate, std::string eTag, Response response);
 
-        bool isExpired();
-        std::string getExpireTime();
+        bool isExpired() const;
+        std::string getExpireTime() const;
 
 
 
