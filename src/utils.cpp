@@ -17,7 +17,7 @@ int connectToOther(const std::string &ip, const std::string &portStr){
     int status = getaddrinfo(ip.c_str(), portStr.c_str(), &hints, &serverInfo);
     if(status != 0){
         std::cerr << "getaddrinfo error: " << gai_strerror(status) << std::endl;
-        exit(1);
+        return -1;
     }
 
     struct addrinfo *p;
@@ -33,6 +33,8 @@ int connectToOther(const std::string &ip, const std::string &portStr){
             socketFd = -1;
             continue;
         }
+
+        break;
     }
     freeaddrinfo(serverInfo);
 
@@ -48,8 +50,7 @@ Request parseRequest(const std::string &request){
     Request req;
 
     if(!std::getline(iss, line)){
-        std::cerr << "Failed to read request line" << std::endl;
-        exit(EXIT_FAILURE);
+        throw std::runtime_error("Invalid request: " + line);
     }
 
     if(!line.empty() && line.back() == '\r'){
@@ -71,8 +72,7 @@ Request parseRequest(const std::string &request){
 
         size_t col_pos = line.find(":");
         if(col_pos == std::string::npos){
-            std::cerr << "Invalid header line: " << line << std::endl;
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Invalid header: " + line);
         }else{
             std::string key = line.substr(0, col_pos);
             std::string value = line.substr(col_pos + 1);
@@ -94,8 +94,7 @@ Request parseRequest(const std::string &request){
             iss.read(&body[0], len);
             req.body = body;
         } catch (const std::exception &e) {
-            std::cerr << "Invalid Content-Length: " << body_len->second << " (" << e.what() << ")" << std::endl;
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Invalid Content-Length");
         }
     } else {
         req.body = "";
@@ -112,8 +111,7 @@ Response parseResponse(const std::string &response){
     Response res;
 
     if(!std::getline(iss, line)){
-        std::cerr << "Failed to read response line" << std::endl;
-        exit(EXIT_FAILURE);
+        throw std::runtime_error("Invalid response: " + line);
     }
 
     if(!line.empty() && line.back() == '\r'){
@@ -135,6 +133,8 @@ Response parseResponse(const std::string &response){
         status_msg.erase(0, status_msg.find_first_not_of(' '));
     }
 
+    res.status_msg = status_msg;
+
 
 
     //headers
@@ -145,8 +145,7 @@ Response parseResponse(const std::string &response){
 
         size_t col_pos = line.find(":");
         if(col_pos == std::string::npos){
-            std::cerr << "Invalid header line: " << line << std::endl;
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Invalid header: " + line);
         }else{
             std::string key = line.substr(0, col_pos);
             std::string value = line.substr(col_pos + 1);
@@ -168,8 +167,7 @@ Response parseResponse(const std::string &response){
             iss.read(&body[0], len);
             res.body = body;
         } catch (const std::exception &e) {
-            std::cerr << "Invalid Content-Length: " << body_len->second << " (" << e.what() << ")" << std::endl;
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Invalid Content-Length");
         }
     } else {
         res.body = "";
@@ -177,4 +175,31 @@ Response parseResponse(const std::string &response){
     return res;
 
 
+}
+
+std::string responseToString(const Response &response){
+    std::ostringstream oss;
+    oss << response.version << " " << response.status_code << " " << response.status_msg << "\r\n";
+    for(auto &header: response.headers){
+        oss << header.first << ": " << header.second << "\r\n";
+    }
+    oss << "\r\n";
+    oss << response.body;
+    return oss.str();
+}
+
+
+std::string requestToString(const Request &request, const std::string &revalidateHeader){
+    std::ostringstream oss;
+    oss << request.method << " " << request.url << " " << request.version << "\r\n";
+    for(auto &header: request.headers){
+        oss << header.first << ": " << header.second << "\r\n";
+    }
+    if(!revalidateHeader.empty()){
+        oss << revalidateHeader;
+    }
+
+    oss << "\r\n";
+    oss << request.body;
+    return oss.str();
 }

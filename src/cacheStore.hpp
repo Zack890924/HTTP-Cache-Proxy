@@ -7,6 +7,14 @@
 #include <shared_mutex>
 
 
+
+enum class CacheStatus{
+    MISS,
+    VALID,
+    EXPIRED,
+    REVALIDATE
+};
+
 class CacheStore{
     private:
         std::map<std::string, Cache> cacheStore;
@@ -25,7 +33,8 @@ class CacheStore{
             static CacheStore instance;
             return instance;
         }
-        bool fetchData(const std::string &key, Response &result);
+        CacheStatus fetchData(const std::string &key, Response &result, std::string &expireTimeStr);
+
         void storeData(const std::string &key, const Response response);
 
         

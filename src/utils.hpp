@@ -36,6 +36,8 @@ typedef struct {
 int connectToOther(const std::string &ip, const std::string &portStr);
 Request parseRequest(const std::string &request);
 Response parseResponse(const std::string &response);
+std::string responseToString(const Response &response);
+std::string requestToString(const Request &request, const std::string &revalidateHeader);
 
 
 #endif // UTILS_HPP

@@ -8,26 +8,26 @@
 
 
 
-bool CacheStore::fetchData(const std::string &key, Response &result) {
+CacheStatus CacheStore::fetchData(const std::string &key, Response &result, std::string &expireTimeStr) {
 	std::shared_lock<std::shared_mutex> lock(cacheMutex);
     auto it = cacheStore.find(key);
     if(it == cacheStore.end()){
         //not found
-        return false;
+        return CacheStatus::MISS;
     }
     const Cache &cache = it->second;
     
     if(cache.isExpired()){
         //expired
-        return false;
+        return CacheStatus::EXPIRED;
     }
 
     if(cache.mustRevalidate){
-        return false;
+        return CacheStatus::REVALIDATE;
     }
 
     result = cache.response;
-    return true;
+    return CacheStatus::VALID;
 }
 
 
@@ -40,6 +40,7 @@ void CacheStore::storeData(const std::string &key, const Response response) {
     auto it = response.headers.find("Cache-Control");
     auto expireTime = std::chrono::system_clock::now();
     bool revalidate = false;
+    
 
     if(it != response.headers.end()){
         std::string cacheControl = it->second;
@@ -92,6 +93,7 @@ void CacheStore::storeData(const std::string &key, const Response response) {
 
     std::unique_lock<std::shared_mutex> lock(cacheMutex);
     cacheStore[key] = cache;
+    //ID: cached, expires at EXPIRES
     
 }
 

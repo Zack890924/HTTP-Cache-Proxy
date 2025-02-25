@@ -12,7 +12,7 @@ connHandler::~connHandler(){
 
 
 void connHandler::handleConnection(){
-    int reqId = requestCounter++;
+    int reqId = requestCounter.fetch_add(1);
 
     //receive request
     std::string request;
@@ -20,7 +20,8 @@ void connHandler::handleConnection(){
     int numBytes = recv(clientFd, buffer.data(), buffer.size() - 1, 0);
     //TODO
     if(numBytes < 0){
-        return;
+        std::string bad_req = "HTTP/1.1 400 Bad Request\r\n";
+        
     }
     else{
         request = std::string(buffer.data(), numBytes);

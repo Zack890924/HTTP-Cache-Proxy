@@ -7,7 +7,7 @@ class connHandler {
         connHandler(int clientFd);
         ~connHandler();
         void handleConnection();
-        void processGET(const Request &req, int reqId);
+        void writeToClient(const std::string &response);
     private:
         int clientFd;
         static std::atomic<int> requestCounter;
