@@ -1,6 +1,7 @@
 #include "proxy.hpp";
 #include "cacheStore.hpp"
 #include <unistd.h>
+#include <sstream>
 
 
 
@@ -100,12 +101,121 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 
 
 
-    
+    if(response.status_code == 304 && mustRevalidate){
+        //logger
+        //ID: 304 Not Modified
+        CacheStore::getInstance().storeData(key, response);
+        //logger
+        //304 NotModified->Using Old
+        return responseToString(cacheResponse);
+    }
+
+
+    //200 ok store new response in cache
+    if(response.status_code == 200){
 
 
 
+        bool canStore = true;
+        if(response.headers.find("Cache-Control") != response.headers.end()){
+            auto cacheControl = response.headers.find("Cache-Control");
+            if(cacheControl->second.find("no-store") != std::string::npos){
+                canStore = false;
+                //logger
+                //not cacheable because reason no-store
+            }
+            else if(cacheControl->second.find("private") != std::string::npos){
+                canStore = false;
+                //logger
+                //not cacheable because reason private
+            }
+            
+        }
 
+
+        if(canStore){
+            CacheStore::getInstance().storeData(key, response);
+            
+            Response temp;
+            std::string expTime;
+            CacheStatus tempStatus = CacheStore::getInstance().fetchData(key, temp, expTime);
+            if(tempStatus == CacheStatus::REVALIDATE){
+                //logger
+                //ID: cached, but requires re-validation
+            }
+            else{
+                //logger
+                //ID: cached, expires at EXPIRES
+            }
+        }
+
+
+
+        std::string responseStr = responseToString(response);
+
+        //logger
+        //Responding HTTP/1.1 200 OK
+        std::ostringstream oss;
+        oss << response.version << " " << response.status_code << " " << response.status_msg;
+
+
+
+        return responseStr;
+    }
 }
+
+std::string Proxy::handlePost(const Request &req, int requestId, const std::string &clientIp){
+    std::ostringstream oss;
+    oss << req.method << " " << req.url << " " << req.version << "\r\n";
+
+    std::string hostName = "unknown";
+    if(req.headers.find("Host") != req.headers.end()){
+        hostName = req.headers.at("Host");
+    }
+    //logger
+    //eg 105: Requesting "POST /login HTTP/1.1" from example.com
+
+
+
+    std::string responseStr;
+    Response response;
+    try{
+        responseStr = forwardToHost(req, requestId, clientIp, "");
+        response = parseResponse(responseStr);
+    }
+    catch(...){
+        //logger
+        return "HTTP/1.1 502 Bad Gateway\r\n\r\n";
+    }
+
+
+    //logger
+    //105: Received "HTTP/1.1 201 Created" from api.example.com
+
+    std::string responseStr = responseToString(response);
+    std::ostringstream oss;
+    oss << response.version << " " << response.status_code << " " << response.status_msg;
+
+    //logger
+    //105: Responding "HTTP/1.1 201 Created
+
+
+
+
+    return responseStr;
+
+
+ }
+
+
+ std::string Proxy::handleConnect(const Request &req, int requestId, const std::string &clientIp){
+    //logger
+    //HTTP/1.1 200 OK
+    return "HTTP/1.1 200 OK\r\n\r\n";
+
+
+ }
+ 
 
 
 
@@ -151,6 +261,14 @@ std::string Proxy::forwardToHost(const Request &req, int requestId, const std::s
 }
 
 
+
+
+
 int Proxy::connectToHost(const std::string &host, const std::string &portStr){
     return connectToOther(host, portStr);
 }
+
+
+
+
+
