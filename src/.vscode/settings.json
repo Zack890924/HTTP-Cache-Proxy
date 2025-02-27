@@ -57,6 +57,7 @@
         "algorithm": "cpp",
         "__tree": "cpp",
         "map": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "list": "cpp"
     }
 }

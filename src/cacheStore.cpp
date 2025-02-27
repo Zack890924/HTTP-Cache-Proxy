@@ -3,6 +3,21 @@
 #include <iostream>
 
 
+static const size_t DEFAULT_SIZE = 10;
+
+CacheStore::CacheStore() {
+    MAX_CACHE_SIZE = DEFAULT_SIZE; 
+}
+
+
+void CacheStore::moveToFront(const std::string &key) {
+    auto it = cacheMap.find(key);
+    if (it != cacheMap.end()) {
+        dLlist.erase(it->second);
+    }
+    dLlist.push_front(key);
+    cacheMap[key] = dLlist.begin();
+}
 
 
 
@@ -10,11 +25,14 @@
 
 CacheStatus CacheStore::fetchData(const std::string &key, Response &result, std::string &expireTimeStr) {
 	std::shared_lock<std::shared_mutex> lock(cacheMutex);
-    auto it = cacheStore.find(key);
-    if(it == cacheStore.end()){
+    auto it = data.find(key);
+    if(it == data.end()){
         //not found
         return CacheStatus::MISS;
     }
+
+    moveToFront(key);
+
     const Cache &cache = it->second;
     
     if(cache.isExpired()){
@@ -31,21 +49,28 @@ CacheStatus CacheStore::fetchData(const std::string &key, Response &result, std:
 }
 
 
+
 void CacheStore::storeData(const std::string &key, const Response response) {
 
     if(response.status_code != 200){
         return;
     }
 
-    auto it = response.headers.find("Cache-Control");
-    auto expireTime = std::chrono::system_clock::now();
+    auto controlIt = response.headers.find("Cache-Control");
+    auto expireTime = std::chrono::system_clock::now() + std::chrono::seconds(60);
     bool revalidate = false;
     
 
-    if(it != response.headers.end()){
-        std::string cacheControl = it->second;
+    if(controlIt != response.headers.end()){
+        std::string cacheControl = controlIt->second;
         if(cacheControl.find("no-store") != std::string::npos){
             return;
+        }
+        if(cacheControl.find("private") != std::string::npos){
+            return;
+        }
+        if(cacheControl.find("must-revalidate") != std::string::npos){
+            revalidate = true;
         }
 
         auto startPos = cacheControl.find("max-age=");
@@ -78,9 +103,7 @@ void CacheStore::storeData(const std::string &key, const Response response) {
 
         }
 
-        if(cacheControl.find("must-revalidate") != std::string::npos){
-            revalidate = true;
-        }
+        
     }
     std::string eTagVal = "";
     auto eTag = response.headers.find("ETag");
@@ -92,8 +115,29 @@ void CacheStore::storeData(const std::string &key, const Response response) {
     Cache cache(expireTime, revalidate, eTagVal, response);
 
     std::unique_lock<std::shared_mutex> lock(cacheMutex);
-    cacheStore[key] = cache;
-    //ID: cached, expires at EXPIRES
+
+    auto it = data.find(key);
+    if(it == data.end()){
+        dLlist.push_front(key);
+        cacheMap[key] = dLlist.begin();
+        data[key] = cache;
+    } 
+    else{
+        it->second = cache; 
+        moveToFront(key);
+    }
+
+
+    if (data.size() > MAX_CACHE_SIZE) {
+        std::string oldKey = dLlist.back(); 
+        dLlist.pop_back();  
+        data.erase(oldKey); 
+        cacheMap.erase(oldKey);  
+    }
+    
     
 }
+
+
+
 

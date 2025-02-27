@@ -66,6 +66,9 @@ void connHandler::handleConnection(){
     }else if(req.method == "CONNECT"){
 
         std::string response = proxy.handleConnect(req, reqId, clientIp);
+        sendMesgToClient(response);
+
+
         std::string host = req.url;
         std::string port = "443";
 
@@ -79,18 +82,34 @@ void connHandler::handleConnection(){
         if(serverFd < 0){
             //logger
             //"HTTP/1.1 502 Bad Gateway
+            sendMesgToClient("HTTP/1.1 502 Bad Gateway\r\n\r\n");
+            return;
         }
+
+        doTunnel(serverFd);
+        close(serverFd);
+        //logger
+        //<reqId>: Tunnel closed
+
 
 
     }
     else{
-        //TODO
+        //logger
+        //HTTP/1.1 501 Not Implemented
+        sendMesgToClient("HTTP/1.1 501 Not Implemented\r\n\r\n");
 
     }
 
 
 }
 
+
+
+
+void connHandler::sendMesgToClient(const std::string &msg){
+    send(clientFd, msg.c_str(), msg.size(), 0);
+}
 
 
 void connHandler::doTunnel(int serverFd){

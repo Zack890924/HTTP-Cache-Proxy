@@ -14,6 +14,7 @@ class connHandler {
         static std::atomic<int> requestCounter;
         std::string getClientIp() const;
         void doTunnel(int serverFd);
+        void sendMesgToClient(const std::string &msg);
 
     
 

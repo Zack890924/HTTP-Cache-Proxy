@@ -21,7 +21,7 @@ bool Cache::isExpired() const{
 }
 
 
-std::string Cache::getExpireTime() const{
+std::string Cache::getExpireTimeString() const{
     std::time_t expireTime_t = std::chrono::system_clock::to_time_t(expireTime);
     //time -> string
     std::string expireTimeStr = std::ctime(&expireTime_t);

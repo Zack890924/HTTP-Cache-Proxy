@@ -32,7 +32,6 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 
 
     if(status == CacheStatus::VALID){
-        //cache hit
         //in cache, valid
         //logger
         std::string responseStr = responseToString(cacheResponse);
@@ -105,9 +104,10 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
         //logger
         //ID: 304 Not Modified
         CacheStore::getInstance().storeData(key, response);
+        std::string finalStr = responseToString(cacheResponse);
         //logger
         //304 NotModified->Using Old
-        return responseToString(cacheResponse);
+        return finalStr;
     }
 
 
@@ -115,17 +115,19 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
     if(response.status_code == 200){
 
 
-
+        std::string reason = "";
         bool canStore = true;
         if(response.headers.find("Cache-Control") != response.headers.end()){
             auto cacheControl = response.headers.find("Cache-Control");
             if(cacheControl->second.find("no-store") != std::string::npos){
                 canStore = false;
+                reason="Cache-Control: no-store";
                 //logger
                 //not cacheable because reason no-store
             }
             else if(cacheControl->second.find("private") != std::string::npos){
                 canStore = false;
+                reason="Cache-Control: private";
                 //logger
                 //not cacheable because reason private
             }
@@ -148,15 +150,21 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
                 //ID: cached, expires at EXPIRES
             }
         }
+        else{
+            //logger
+            //logNotCacheable
+        }
 
 
 
         std::string responseStr = responseToString(response);
 
-        //logger
-        //Responding HTTP/1.1 200 OK
+
         std::ostringstream oss;
         oss << response.version << " " << response.status_code << " " << response.status_msg;
+        //logger
+        //Responding HTTP/1.1 200 OK
+        
 
 
 
