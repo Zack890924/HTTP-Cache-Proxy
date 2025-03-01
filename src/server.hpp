@@ -2,6 +2,10 @@
 
 #ifndef SERVER_HPP
 #define SERVER_HPP
+#include <netinet/in.h>
+
+#include <arpa/inet.h>
+
 
 
 

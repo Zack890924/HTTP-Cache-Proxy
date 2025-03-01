@@ -1,7 +1,11 @@
-#include "proxy.hpp";
+#include "proxy.hpp"
 #include "cacheStore.hpp"
 #include <unistd.h>
 #include <sstream>
+#include "logger.hpp"
+#include <vector>
+
+
 
 
 
@@ -34,8 +38,11 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
     if(status == CacheStatus::VALID){
         //in cache, valid
         //logger
+        Logger::getInstance().logCacheStatus(requestId, "in cache, valid");
         std::string responseStr = responseToString(cacheResponse);
         //log response
+        //HTTP/1.1 200 OK
+
 
         return responseStr;
 
@@ -46,6 +53,7 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
         //cache hit
         //logger
         //ID: cached, but expired at EXPIRE_TIME
+        Logger::getInstance().logCacheStatusExpired(requestId, expireTimeStr);
 
         if(cacheResponse.headers.find("ETag") != cacheResponse.headers.end()){
             eTag = cacheResponse.headers["ETag"];
@@ -61,7 +69,7 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
         //cache hit
         //logger
         //in cache, but requires re-validation
-
+        Logger::getInstance().logCacheStatus(requestId, "in cache, requires validation");
         
     }
 
@@ -69,7 +77,7 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
         //cache miss
         //logger
         //ID: not in cache
-
+        Logger::getInstance().logCacheStatus(requestId, "not in cache");
     }
 
     std::string revalidateHeader = "";
@@ -82,6 +90,18 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 
     //logger
     //request to host
+    // 104: Requesting "GET /index.html HTTP/1.1" from www.example.com
+    {std::ostringstream line;
+    
+    line << req.method << " " << req.url << " " << req.version;
+    std::string host = "unknown";
+    if(req.headers.find("Host")!=req.headers.end()){
+        host = req.headers.at("Host");
+    }
+    Logger::getInstance().logRequesting(requestId, line.str(), host);
+    }
+
+
 
     std::string responseStr;
     Response response;
@@ -91,22 +111,33 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
     }
     catch(...){
         //logger
+        Logger::getInstance().logRespond(requestId, "HTTP/1.1 502 Bad Gateway");
         return "HTTP/1.1 502 Bad Gateway\r\n\r\n";
     }
 
 
     //logger
     //host received;
+    {std::ostringstream line;
+    line << response.version << " " << response.status_code << " " << response.status_msg;
+    std::string host = "unknown";
+    if(req.headers.find("Host")!=req.headers.end()){
+        host = req.headers.at("Host");
+    }
+    Logger::getInstance().logReceived(requestId, responseToString(response), host);
+    }
 
 
 
     if(response.status_code == 304 && mustRevalidate){
-        //logger
-        //ID: 304 Not Modified
+
         CacheStore::getInstance().storeData(key, response);
         std::string finalStr = responseToString(cacheResponse);
         //logger
         //304 NotModified->Using Old
+        std::ostringstream line;
+        line << cacheResponse.version << " (304 Not Modified -> Using Old)";
+        Logger::getInstance().logRespond(requestId, line.str());
         return finalStr;
     }
 
@@ -122,14 +153,12 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
             if(cacheControl->second.find("no-store") != std::string::npos){
                 canStore = false;
                 reason="Cache-Control: no-store";
-                //logger
-                //not cacheable because reason no-store
+                
             }
             else if(cacheControl->second.find("private") != std::string::npos){
                 canStore = false;
                 reason="Cache-Control: private";
-                //logger
-                //not cacheable because reason private
+                
             }
             
         }
@@ -144,15 +173,18 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
             if(tempStatus == CacheStatus::REVALIDATE){
                 //logger
                 //ID: cached, but requires re-validation
+                Logger::getInstance().logCachedButRevalidate(requestId);
             }
             else{
                 //logger
                 //ID: cached, expires at EXPIRES
+                Logger::getInstance().logCachedExpires(requestId, expTime);
             }
         }
         else{
             //logger
             //logNotCacheable
+            Logger::getInstance().logNotCacheable(requestId, reason);
         }
 
 
@@ -164,6 +196,9 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
         oss << response.version << " " << response.status_code << " " << response.status_msg;
         //logger
         //Responding HTTP/1.1 200 OK
+        std::ostringstream line;
+        line << response.version << " " << response.status_code << " " << response.status_msg;
+        Logger::getInstance().logRespond(requestId, line.str());
         
 
 
@@ -173,15 +208,20 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 }
 
 std::string Proxy::handlePost(const Request &req, int requestId, const std::string &clientIp){
-    std::ostringstream oss;
-    oss << req.method << " " << req.url << " " << req.version << "\r\n";
 
     std::string hostName = "unknown";
     if(req.headers.find("Host") != req.headers.end()){
         hostName = req.headers.at("Host");
     }
+
+
+    {std::ostringstream oss;
+    oss << req.method << " " << req.url << " " << req.version << "\r\n";
+    
     //logger
     //eg 105: Requesting "POST /login HTTP/1.1" from example.com
+    Logger::getInstance().logRequesting(requestId, oss.str(), hostName);
+    }
 
 
 
@@ -189,23 +229,41 @@ std::string Proxy::handlePost(const Request &req, int requestId, const std::stri
     Response response;
     try{
         responseStr = forwardToHost(req, requestId, clientIp, "");
-        response = parseResponse(responseStr);
     }
     catch(...){
         //logger
+        Logger::getInstance().logRespond(requestId, "HTTP/1.1 502 Bad Gateway");
         return "HTTP/1.1 502 Bad Gateway\r\n\r\n";
     }
 
 
+    try{
+        response = parseResponse(responseStr);
+    }
+    catch(...){
+        //logger
+        Logger::getInstance().logRespond(requestId, "HTTP/1.1 502 Bad Gateway");
+        return "HTTP/1.1 502 Bad Gateway\r\n\r\n";
+    }
+
+
+
+    
     //logger
     //105: Received "HTTP/1.1 201 Created" from api.example.com
+    
 
-    std::string responseStr = responseToString(response);
-    std::ostringstream oss;
+    responseStr = responseToString(response);
+    {std::ostringstream oss;
     oss << response.version << " " << response.status_code << " " << response.status_msg;
+    Logger::getInstance().logReceived(requestId, responseStr, hostName);
+    }
 
     //logger
     //105: Responding "HTTP/1.1 201 Created
+    std::ostringstream line;
+    line << response.version << " " << response.status_code << " " << response.status_msg;
+    Logger::getInstance().logRespond(requestId, line.str());
 
 
 
@@ -219,6 +277,7 @@ std::string Proxy::handlePost(const Request &req, int requestId, const std::stri
  std::string Proxy::handleConnect(const Request &req, int requestId, const std::string &clientIp){
     //logger
     //HTTP/1.1 200 OK
+    Logger::getInstance().logRespond(requestId, "HTTP/1.1 200 OK");
     return "HTTP/1.1 200 OK\r\n\r\n";
 
 
@@ -243,9 +302,11 @@ std::string Proxy::forwardToHost(const Request &req, int requestId, const std::s
             host = host.substr(0, colonPos);
         }
     }
-
+    //The operation either succeeds completely  or does not affect the internal state of the Proxy at all 
+    //strong Guarantee
     int fd = connectToHost(host, std::to_string(port));
     if(fd < 0){
+        Logger::getInstance().logError(0, "Failed to connect to host " + host + ":" + std::to_string(port));
         throw std::runtime_error("connectToHost failed");
     }
 

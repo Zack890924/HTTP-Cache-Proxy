@@ -2,8 +2,11 @@
 #include <unistd.h>
 #include "proxy.hpp"
 #include <arpa/inet.h>
+#include "logger.hpp"
+#include <sstream>
+#include <vector>
 
-
+std::atomic<int> connHandler::requestCounter{0};
 
 connHandler::connHandler(int clientFd, const sockaddr_in &clientAddr): clientFd(clientFd), clientAddr(clientAddr) {
 }
@@ -13,6 +16,7 @@ connHandler::~connHandler(){
     if(clientFd >= 0){
         close(clientFd);
     }
+    //This destructor is noexcept, ensuring safe resource cleanup.
 }
 
 
@@ -30,9 +34,13 @@ void connHandler::handleConnection(){
     std::string request;
     std::vector<char> buffer(65536);
     int numBytes = recv(clientFd, buffer.data(), buffer.size() - 1, 0);
-    //TODO
+    //Receiving data from a client (recv) can fail due to 1. Network errors 2. client disconnection 3. invalid request
+    //did not throw exception here; instead, we return a HTTP bad request
     if(numBytes < 0){
         std::string bad_req = "HTTP/1.1 400 Bad Request\r\n";
+        sendMesgToClient(bad_req);
+        Logger::getInstance().logRespond(reqId, "HTTP/1.1 400 Bad Request");
+        return;
 
     }
     else{
@@ -40,29 +48,41 @@ void connHandler::handleConnection(){
     }
 
     //parse request
+    //strong exception safety guarantee
+    //If parsing fails, we catch the exception and return an error without modifying the proxy state.
+    //Remains in a consistent state as if the request never happened.
     Request req; 
     try{
         req = parseRequest(request);
     } catch(std::exception &e){
         // Logger
         //HTTP/1.1 400 Bad Request
+        Logger::getInstance().logRespond(reqId, "HTTP/1.1 400 Bad Request");
         return;
 
     }
 
+    std::string clientIp = getClientIp();
+
 
     //logger
     //123: "GET http://example.com/index.html HTTP/1.1" from 192.168.1.100 @ 2024-02-24 15:00:00 UTC
+    {std::ostringstream oss;
+    oss << req.method << " " << req.url << " " << req.version;
+    Logger::getInstance().logNewRequest(reqId, oss.str(), clientIp);
+    }
 
 
     //handle reqest
     Proxy proxy;
-    std::string clientIp = getClientIp();
+    
     
     if(req.method == "GET"){
         std::string response = proxy.handleGet(req, reqId, clientIp);
+        sendMesgToClient(response);
     }else if(req.method == "POST"){
         std::string response = proxy.handlePost(req, reqId, clientIp);
+        sendMesgToClient(response);
     }else if(req.method == "CONNECT"){
 
         std::string response = proxy.handleConnect(req, reqId, clientIp);
@@ -82,6 +102,7 @@ void connHandler::handleConnection(){
         if(serverFd < 0){
             //logger
             //"HTTP/1.1 502 Bad Gateway
+            Logger::getInstance().logRespond(reqId, "HTTP/1.1 502 Bad Gateway");
             sendMesgToClient("HTTP/1.1 502 Bad Gateway\r\n\r\n");
             return;
         }
@@ -90,6 +111,7 @@ void connHandler::handleConnection(){
         close(serverFd);
         //logger
         //<reqId>: Tunnel closed
+        Logger::getInstance().logTunnelClosed(reqId);
 
 
 
@@ -97,13 +119,13 @@ void connHandler::handleConnection(){
     else{
         //logger
         //HTTP/1.1 501 Not Implemented
+        Logger::getInstance().logRespond(reqId, "HTTP/1.1 501 Not Implemented");
         sendMesgToClient("HTTP/1.1 501 Not Implemented\r\n\r\n");
 
     }
 
 
 }
-
 
 
 
@@ -122,26 +144,38 @@ void connHandler::doTunnel(int serverFd){
         FD_ZERO(&fds);
         FD_SET(clientFd, &fds);
         FD_SET(serverFd, &fds);
-
-        if(select(maxFd, &fds, nullptr, nullptr, nullptr) < 0){
+        //basic guarantee
+        //If select() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
+        if(select(maxFd + 1, &fds, nullptr, nullptr, nullptr) < 0){
+            Logger::getInstance().logError(0, "select failed, closing tunnel.");
             break;
         }
 
         //check if ready to read or write
+        //basic guarantee
+        //If receive() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
         if(FD_ISSET(clientFd, &fds)){
             int nBytes = recv(clientFd, buf, sizeof(buf), 0);
             if(nBytes <= 0) {
                 break;
             }
-            send(clientFd, buf, nBytes, 0);
+            if(send(serverFd, buf, nBytes, 0) < 0){
+                Logger::getInstance().logError(0, "send to server failed in tunnel.");
+                break;
+            }
+            
         }
-
+        //basic guarantee
+        //If send() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
         if(FD_ISSET(serverFd, &fds)){
-            int nBytes = recv(clientFd, buf, sizeof(buf), 0);
+            int nBytes = recv(serverFd, buf, sizeof(buf), 0);
             if(nBytes <= 0) {
                 break;
             }
-            send(clientFd, buf, nBytes, 0);
+            if(send(clientFd, buf, nBytes, 0) < 0) {
+                Logger::getInstance().logError(0, "send to client failed in tunnel.");
+                break;
+            }
         }
 
 

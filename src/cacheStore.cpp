@@ -1,12 +1,14 @@
 #include "cacheStore.hpp"
 #include "cache.hpp"
 #include <iostream>
+#include "logger.hpp"
 
 
 static const size_t DEFAULT_SIZE = 10;
 
 CacheStore::CacheStore() {
     MAX_CACHE_SIZE = DEFAULT_SIZE; 
+    //This constructor does not throw exceptions because it only initializes members.
 }
 
 
@@ -45,6 +47,7 @@ CacheStatus CacheStore::fetchData(const std::string &key, Response &result, std:
     }
 
     result = cache.response;
+    expireTimeStr = cache.getExpireTimeString();
     return CacheStatus::VALID;
 }
 
@@ -95,10 +98,10 @@ void CacheStore::storeData(const std::string &key, const Response response) {
 
             if(!maxAgeStr.empty()){
                 int maxAge = std::stoi(maxAgeStr);
-                expireTime += std::chrono::seconds(maxAge);
+                expireTime = std::chrono::system_clock::now() + std::chrono::seconds(maxAge);
             }
             else{
-                expireTime += std::chrono::seconds(60);
+                expireTime = std::chrono::system_clock::now() + std::chrono::seconds(60);
             }
 
         }
@@ -115,16 +118,22 @@ void CacheStore::storeData(const std::string &key, const Response response) {
     Cache cache(expireTime, revalidate, eTagVal, response);
 
     std::unique_lock<std::shared_mutex> lock(cacheMutex);
-
-    auto it = data.find(key);
-    if(it == data.end()){
-        dLlist.push_front(key);
-        cacheMap[key] = dLlist.begin();
-        data[key] = cache;
-    } 
-    else{
-        it->second = cache; 
-        moveToFront(key);
+    //strong guarantee
+    //If an exception occurs during the update,log the error and throw, ensuring the state remains unchanged
+    //If an error happend, operator leaves the system state as if it never happened.
+    try {
+        auto it = data.find(key);
+        if (it == data.end()) {
+            dLlist.push_front(key);
+            cacheMap[key] = dLlist.begin();
+            data[key] = cache;
+        } else {
+            it->second = cache;
+            moveToFront(key);
+        }
+    } catch (const std::exception &e) {
+        Logger::getInstance().logError(0, "Cache update failed: " + std::string(e.what()));
+        throw;
     }
 
 

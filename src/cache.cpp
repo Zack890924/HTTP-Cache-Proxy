@@ -1,4 +1,4 @@
-#include "cache.hpp";
+#include "cache.hpp"
 
 
 
@@ -10,8 +10,7 @@ Cache::Cache(){
 }
 
 
-Cache::Cache(std::chrono::system_clock::time_point expireTime, bool mustRevalidate, std::string eTag, Response response) :
-                 expireTime(expireTime), mustRevalidate(mustRevalidate), eTag(eTag), response(response){}
+Cache::Cache(std::chrono::system_clock::time_point expireTime, bool mustRevalidate, std::string eTag, Response response) : expireTime(expireTime), mustRevalidate(mustRevalidate), eTag(eTag), response(response){}
 
 
 

@@ -45,6 +45,8 @@ class CacheStore{
 
         CacheStore(CacheStore const&) = delete;
         CacheStore& operator=(CacheStore const&) = delete;
+
+        
         CacheStatus fetchData(const std::string &key, Response &result, std::string &expireTimeStr);
 
         void storeData(const std::string &key, const Response response);

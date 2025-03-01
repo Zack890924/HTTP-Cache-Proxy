@@ -1,6 +1,8 @@
 #include <string>
 #include "utils.hpp"
 #include <netinet/in.h>
+#include <atomic>
+
 
 class connHandler {
     public:

@@ -58,6 +58,8 @@
         "__tree": "cpp",
         "map": "cpp",
         "shared_mutex": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp"
     }
 }
