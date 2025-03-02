@@ -449,3 +449,30 @@ success
 5: "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:15:50 UTC
 5: Requesting "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1
 " from o.pki.goog
+3: Tunnel closed
+6: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:18:40 UTC
+6: Responding "HTTP/1.1 200 Connection Established"
+6: Tunnel closed
+7: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:18:40 UTC
+7: Responding "HTTP/1.1 200 Connection Established"
+4: Tunnel closed
+8: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:18:42 UTC
+8: Responding "HTTP/1.1 200 Connection Established"
+8: Tunnel closed
+2: Tunnel closed
+9: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:19:48 UTC
+9: Responding "HTTP/1.1 200 Connection Established"
+5: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Security-Policy-Report-Only: script-src 'none'; form-action 'none'; frame-src 'none'; report-uri https://csp.withgoogle.com/csp/scaffolding/sytroprc:52:0
+Content-Type: application/ocsp-response
+Cross-Origin-Opener-Policy-Report-Only: same-origin; report-to=sytroprc:52:0
+Date: Sun, 02 Mar 2025 05:15:50 GMT
+Report-To: {"group":"sytroprc:52:0","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/scaffolding/sytroprc:52:0"}],}
+Server: scaffolding on HTTPServer2
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+
+[binary data]" from o.pki.goog
+5: Responding "HTTP/1.1 200 OK"

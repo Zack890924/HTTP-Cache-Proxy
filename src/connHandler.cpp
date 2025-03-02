@@ -134,103 +134,60 @@ void connHandler::sendMesgToClient(const std::string &msg){
 }
 
 
-// void connHandler::doTunnel(int serverFd){
-//     int maxFd = -1;
-//     maxFd = (clientFd > serverFd) ? clientFd : serverFd ;
-//     char buf[8192];
-//     fd_set fds;
-
-//     while(true){
-//         FD_ZERO(&fds);
-//         FD_SET(clientFd, &fds);
-//         FD_SET(serverFd, &fds);
-//         //basic guarantee
-//         //If select() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
-//         if(select(maxFd + 1, &fds, nullptr, nullptr, nullptr) < 0){
-//             Logger::getInstance().logError(0, "select failed, closing tunnel.");
-//             break;
-//         }
-
-//         //check if ready to read or write
-//         //basic guarantee
-//         //If receive() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
-//         if(FD_ISSET(clientFd, &fds)){
-//             int nBytes = recv(clientFd, buf, sizeof(buf), 0);
-//             if(nBytes <= 0) {
-//                 break;
-//             }
-//             if(send(serverFd, buf, nBytes, 0) < 0){
-//                 Logger::getInstance().logError(0, "send to server failed in tunnel.");
-//                 break;
-//             }
-            
-//         }
-//         //basic guarantee
-//         //If send() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
-//         if(FD_ISSET(serverFd, &fds)){
-//             int nBytes = recv(serverFd, buf, sizeof(buf), 0);
-//             if(nBytes <= 0) {
-//                 break;
-//             }
-//             if(send(clientFd, buf, nBytes, 0) < 0) {
-//                 Logger::getInstance().logError(0, "send to client failed in tunnel.");
-//                 break;
-//             }
-//         }
-
-
-
-//     }
-
-// }
-
-
-
-
-
-
-
-void connHandler::doTunnel(int serverFd) {
+void connHandler::doTunnel(int serverFd){
+    int maxFd = -1;
+    maxFd = (clientFd > serverFd) ? clientFd : serverFd ;
     char buf[8192];
-    ssize_t n;
     fd_set fds;
-    struct timeval tv;
 
-    while (true) {
+    while(true){
         FD_ZERO(&fds);
         FD_SET(clientFd, &fds);
         FD_SET(serverFd, &fds);
-
-        tv.tv_sec = 5;  // 設定 5 秒超時
-        tv.tv_usec = 0;
-
-        int activity = select(std::max(clientFd, serverFd) + 1, &fds, NULL, NULL, &tv);
-        if (activity < 0) {
-            Logger::getInstance().logError(0, "select() failed in doTunnel");
+        //basic guarantee
+        //If select() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
+        if(select(maxFd + 1, &fds, nullptr, nullptr, nullptr) < 0){
+            Logger::getInstance().logError(0, "select failed, closing tunnel.");
             break;
         }
 
-        if (activity == 0) { // 超時處理
-            continue;
+        //check if ready to read or write
+        //basic guarantee
+        //If receive() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
+        if(FD_ISSET(clientFd, &fds)){
+            int nBytes = recv(clientFd, buf, sizeof(buf), 0);
+            if(nBytes <= 0) {
+                break;
+            }
+            if(send(serverFd, buf, nBytes, 0) < 0){
+                Logger::getInstance().logError(0, "send to server failed in tunnel.");
+                break;
+            }
+            
+        }
+        //basic guarantee
+        //If send() fails only logs the error and breaks, but does not roll back the data transfer that has already occurred.
+        if(FD_ISSET(serverFd, &fds)){
+            int nBytes = recv(serverFd, buf, sizeof(buf), 0);
+            if(nBytes <= 0) {
+                break;
+            }
+            if(send(clientFd, buf, nBytes, 0) < 0) {
+                Logger::getInstance().logError(0, "send to client failed in tunnel.");
+                break;
+            }
         }
 
-        // 從客戶端讀取並轉發給伺服器
-        if (FD_ISSET(clientFd, &fds)) {
-            n = recv(clientFd, buf, sizeof(buf), 0);
-            if (n <= 0) break;
-            if (send(serverFd, buf, n, 0) <= 0) break;
-        }
 
-        // 從伺服器讀取並轉發給客戶端
-        if (FD_ISSET(serverFd, &fds)) {
-            n = recv(serverFd, buf, sizeof(buf), 0);
-            if (n <= 0) break;
-            if (send(clientFd, buf, n, 0) <= 0) break;
-        }
+
     }
 
-    // 確保優雅關閉
-    shutdown(clientFd, SHUT_RDWR);
-    shutdown(serverFd, SHUT_RDWR);
 }
+
+
+
+
+
+
+
 
