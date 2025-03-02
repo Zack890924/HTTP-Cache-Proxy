@@ -5,6 +5,7 @@
 #include "logger.hpp"
 #include <sstream>
 #include <vector>
+#include <iomanip>
 
 std::atomic<int> connHandler::requestCounter{0};
 
