@@ -132,103 +132,6 @@ void connHandler::handleConnection(){
 void connHandler::sendMesgToClient(const std::string &msg){
     send(clientFd, msg.c_str(), msg.size(), 0);
 }
-void connHandler::doTunnel(int serverFd) {
-    int maxFd = (clientFd > serverFd) ? clientFd : serverFd;
-    char buf[8192];
-    fd_set fds;
-
-    // 為了方便記錄傳輸方向，新增兩個小的 lambda
-    auto sendAll = [&](int destFd, const char *data, int len) -> bool {
-        int totalSent = 0;
-        while (totalSent < len) {
-            int n = send(destFd, data + totalSent, len - totalSent, 0);
-            if (n < 0) {
-                // send 失敗，或被中斷，直接回傳失敗
-                Logger::getInstance().logError(0, "sendAll: send() failed");
-                return false;
-            }
-            totalSent += n;
-        }
-        return true;
-    };
-
-    auto nowStr = [](){
-        // 取得當前時間字串，方便除錯
-        auto now = std::chrono::system_clock::now();
-        auto t_c = std::chrono::system_clock::to_time_t(now);
-        std::ostringstream oss;
-        oss << std::put_time(std::localtime(&t_c), "%Y-%m-%d %H:%M:%S");
-        return oss.str();
-    };
-
-    while (true) {
-        FD_ZERO(&fds);
-        FD_SET(clientFd, &fds);
-        FD_SET(serverFd, &fds);
-
-        int ret;
-        while (true) {
-            ret = select(maxFd + 1, &fds, nullptr, nullptr, nullptr);
-            if (ret < 0 && errno == EINTR) {
-                // 如果被訊號中斷，繼續重試
-                continue;
-            }
-            break;
-        }
-
-        if (ret < 0) {
-            // select 發生錯誤
-            Logger::getInstance().logError(0, "select failed, closing tunnel.");
-            break;
-        }
-
-        // 如果 clientFd 可讀
-        if (FD_ISSET(clientFd, &fds)) {
-            int nBytes = recv(clientFd, buf, sizeof(buf), 0);
-            if (nBytes <= 0) {
-                // <= 0 表示關閉或錯誤，隧道斷開
-                Logger::getInstance().logNote(0, 
-                    "doTunnel: clientFd closed or error, nBytes=" + std::to_string(nBytes) + 
-                    " at " + nowStr());
-                break;
-            } else {
-                // 嘗試一次把 nBytes 的資料都發給 serverFd
-                bool success = sendAll(serverFd, buf, nBytes);
-                if (!success) {
-                    Logger::getInstance().logError(0, "send to server failed in tunnel.");
-                    break;
-                }
-                Logger::getInstance().logNote(0, 
-                    "doTunnel: forwarded " + std::to_string(nBytes) + 
-                    " bytes from clientFd to serverFd at " + nowStr());
-            }
-        }
-
-        // 如果 serverFd 可讀
-        if (FD_ISSET(serverFd, &fds)) {
-            int nBytes = recv(serverFd, buf, sizeof(buf), 0);
-            if (nBytes <= 0) {
-                // <= 0 表示關閉或錯誤，隧道斷開
-                Logger::getInstance().logNote(0, 
-                    "doTunnel: serverFd closed or error, nBytes=" + std::to_string(nBytes) + 
-                    " at " + nowStr());
-                break;
-            } else {
-                bool success = sendAll(clientFd, buf, nBytes);
-                if (!success) {
-                    Logger::getInstance().logError(0, "send to client failed in tunnel.");
-                    break;
-                }
-                Logger::getInstance().logNote(0, 
-                    "doTunnel: forwarded " + std::to_string(nBytes) + 
-                    " bytes from serverFd to clientFd at " + nowStr());
-            }
-        }
-    }
-
-    // 結束時記錄
-    Logger::getInstance().logNote(0, "doTunnel: tunnel loop ended at " + nowStr());
-}
 
 
 // void connHandler::doTunnel(int serverFd){
@@ -287,4 +190,47 @@ void connHandler::doTunnel(int serverFd) {
 
 
 
+void connHandler::doTunnel(int serverFd) {
+    char buf[8192];
+    ssize_t n;
+    fd_set fds;
+    struct timeval tv;
+
+    while (true) {
+        FD_ZERO(&fds);
+        FD_SET(clientFd, &fds);
+        FD_SET(serverFd, &fds);
+
+        tv.tv_sec = 5;  // 設定 5 秒超時
+        tv.tv_usec = 0;
+
+        int activity = select(std::max(clientFd, serverFd) + 1, &fds, NULL, NULL, &tv);
+        if (activity < 0) {
+            Logger::getInstance().logError(0, "select() failed in doTunnel");
+            break;
+        }
+
+        if (activity == 0) { // 超時處理
+            continue;
+        }
+
+        // 從客戶端讀取並轉發給伺服器
+        if (FD_ISSET(clientFd, &fds)) {
+            n = recv(clientFd, buf, sizeof(buf), 0);
+            if (n <= 0) break;
+            if (send(serverFd, buf, n, 0) <= 0) break;
+        }
+
+        // 從伺服器讀取並轉發給客戶端
+        if (FD_ISSET(serverFd, &fds)) {
+            n = recv(serverFd, buf, sizeof(buf), 0);
+            if (n <= 0) break;
+            if (send(clientFd, buf, n, 0) <= 0) break;
+        }
+    }
+
+    // 確保優雅關閉
+    shutdown(clientFd, SHUT_RDWR);
+    shutdown(serverFd, SHUT_RDWR);
+}
 

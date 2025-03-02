@@ -292,13 +292,16 @@ std::string Proxy::handlePost(const Request &req, int requestId, const std::stri
 
 
  std::string Proxy::handleConnect(const Request &req, int requestId, const std::string &clientIp){
-    //logger
-    //HTTP/1.1 200 OK
-    Logger::getInstance().logRespond(requestId, "HTTP/1.1 200 OK");
-    return "HTTP/1.1 200 OK\r\n\r\n";
+    // 建議把 log 也一併改掉，避免誤解
+    Logger::getInstance().logRespond(requestId, "HTTP/1.1 200 Connection Established");
+
+    // 瀏覽器預期看到 "Connection Established" 而不是 "OK"
+    return "HTTP/1.1 200 Connection Established\r\n"
+           "Proxy-Agent: MyProxy/1.0\r\n"
+           "\r\n";
+}
 
 
- }
  
 
 
