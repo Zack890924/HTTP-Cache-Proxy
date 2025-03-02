@@ -1,3 +1,0 @@
-Connection to localhost port 12345 [tcp/italk] succeeded!
-HTTP/1.1 200 OK
-

@@ -1,3 +1,4 @@
+//server.cpp
 #include "server.hpp"
 #include <netdb.h>
 #include <iostream>
@@ -5,8 +6,9 @@
 #include <csignal>
 #include <cstring>
 
-//server.cpp
 
+
+//no throw 
 Server::Server(int port) : port(port), serverFd(-1){}
 
 
@@ -16,7 +18,8 @@ Server::~Server() {
     }
 }
 
-
+//basic guarantee
+//When errors occur, resources are released, and the server state remains consistent.
 void Server::init(){
     struct addrinfo hints, *serverInfo;
     memset(&hints, 0, sizeof hints);
@@ -77,6 +80,9 @@ void Server::init(){
     }
 }
 
+
+//basic guarantee
+//When errors occur, resources are released, and the server state remains consistent.
 int Server::acceptConnection(struct sockaddr_in &clientAddr, socklen_t &clientAddrSize){
     
     int clientFd = accept(serverFd, (struct sockaddr *)&clientAddr, &clientAddrSize);
@@ -123,6 +129,9 @@ void Server::signalHandler(int signum){
     exit(EXIT_SUCCESS);
 }
 
+
+
+//basic guarantee
 void Server::closeServer(int fd){
     if(close(fd) < 0){
         std::cerr << "close error" << std::endl;

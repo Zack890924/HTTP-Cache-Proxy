@@ -38,6 +38,7 @@ Request parseRequest(const std::string &request);
 Response parseResponse(const std::string &response);
 std::string responseToString(const Response &response);
 std::string requestToString(const Request &request, const std::string &revalidateHeader);
+std::string handleChunk(const std::string &chunkedBody);
 
 
 #endif // UTILS_HPP

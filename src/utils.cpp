@@ -5,6 +5,7 @@
 #include <cstring>
 #include "utils.hpp"
 #include <sstream>
+#include <vector>
 
 
 int connectToOther(const std::string &ip, const std::string &portStr){
@@ -13,7 +14,8 @@ int connectToOther(const std::string &ip, const std::string &portStr){
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
     
-
+    //basic guarantee
+    //return error code and ensure the rss would not leak
     int status = getaddrinfo(ip.c_str(), portStr.c_str(), &hints, &serverInfo);
     if(status != 0){
         std::cerr << "getaddrinfo error: " << gai_strerror(status) << std::endl;
@@ -27,7 +29,8 @@ int connectToOther(const std::string &ip, const std::string &portStr){
         if(socketFd < 0){
             continue;
         }
-
+        //basic guarantee
+        //return error codec and ensure the rss would not leak
         if(connect(socketFd, p->ai_addr, p->ai_addrlen) < 0){
             close(socketFd);
             socketFd = -1;
@@ -84,6 +87,8 @@ Request parseRequest(const std::string &request){
     }
 
     //body
+    //Strong Guarantee
+    //This ensures that req.body is not partially updated when an exception occurs
     auto body_len = req.headers.find("Content-Length");
     if (body_len != req.headers.end()) {
         try {
@@ -102,6 +107,51 @@ Request parseRequest(const std::string &request){
     
     return req;
 }
+
+
+
+//Strong Guarantee
+//It either successfully parses the entire chunked response or does not affect the final_string
+std::string handleChunk(const std::string &chunkedBody) {
+    std::istringstream stream(chunkedBody);
+    std::string final_string;
+    std::string line;
+
+    while (std::getline(stream, line)) {
+        //space 
+        if(line.empty()){
+            continue; 
+        }
+        //remove \r
+        if (!line.empty() && line.back() == '\r') {
+            line.pop_back();
+        }
+        
+        
+        size_t chunkSize = 0;
+        std::istringstream sizeStream(line);
+        sizeStream >> std::hex >> chunkSize;
+        if (chunkSize == 0) {
+            break;
+        }
+        
+        std::vector<char> buffer(chunkSize);
+        stream.read(buffer.data(), chunkSize);
+      
+        if (stream.gcount() != static_cast<std::streamsize>(chunkSize)) {
+            throw std::runtime_error("Size of data did not meet");
+        }
+
+        final_string.append(buffer.data(), chunkSize);
+        
+        if (!std::getline(stream, line)) {
+            throw std::runtime_error("Missing CRLF after chunk");
+        }
+    }
+    
+    return final_string;
+}
+
 
 
 
@@ -157,25 +207,45 @@ Response parseResponse(const std::string &response){
     }
 
     //body
-    auto body_len = res.headers.find("Content-Length");
-    if (body_len != res.headers.end()) {
-        try {
-            int len = std::stoi(body_len->second);
-            if (len < 0) throw std::out_of_range("Negative Content-Length");
-
-            std::string body(len, '\0');
-            iss.read(&body[0], len);
-            res.body = body;
-        } catch (const std::exception &e) {
-            throw std::runtime_error("Invalid Content-Length");
+    //Strong Guarantee
+    //handleChunk() guarantees that res.body is either fully updated or remains unchanged.
+    auto te = res.headers.find("Transfer-Encoding");
+    if (te != res.headers.end() && te->second == "chunked") {
+        std::string chunkedBody;
+        char ch;
+        while (iss.get(ch)) { 
+            chunkedBody += ch;
         }
-    } else {
-        res.body = "";
+        res.body = handleChunk(chunkedBody);
     }
+    else{
+        auto body_len = res.headers.find("Content-Length");
+        if (body_len != res.headers.end()) {
+            try {
+                int len = std::stoi(body_len->second);
+                if (len < 0) throw std::out_of_range("Negative Content-Length");
+
+                std::string body(len, '\0');
+                iss.read(&body[0], len);
+                res.body = body;
+            } catch (const std::exception &e) {
+                throw std::runtime_error("Invalid Content-Length");
+            }
+        } else {
+            res.body = "";
+        }
+    }
+
+    
     return res;
 
 
 }
+
+
+//responseToString and requestToString
+//Containers such as std::ostringstream do not modify any external state
+
 
 std::string responseToString(const Response &response){
     std::ostringstream oss;
@@ -184,7 +254,12 @@ std::string responseToString(const Response &response){
         oss << header.first << ": " << header.second << "\r\n";
     }
     oss << "\r\n";
-    oss << response.body;
+    auto it = response.headers.find("Content-Type");
+    if (it != response.headers.end() && it->second.find("text/") != std::string::npos) {
+        oss << response.body.substr(0, 500);
+    } else {
+        oss << "[binary data]";
+    }
     return oss.str();
 }
 

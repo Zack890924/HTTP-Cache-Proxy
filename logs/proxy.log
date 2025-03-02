@@ -1,185 +1,68 @@
-0: Responding "HTTP/1.1 400 Bad Request"
-1: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-02-28 20:55:14 UTC
-1: not in cache
-1: Requesting "GET http://example.com/ HTTP/1.1" from example.com
+0: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:34 UTC
+1: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:34 UTC
+1: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+0: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+2: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:54 UTC
+2: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+3: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:54 UTC
+3: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+0: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 472
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 02:07:34 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+
+[binary data]" from o.pki.goog
+0: Responding "HTTP/1.1 200 OK"
+4: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:34 UTC
+4: Requesting "POST http://ocsp.sectigo.com/ HTTP/1.1
+" from ocsp.sectigo.com
 1: Received "HTTP/1.1 200 OK
-Cache-Control: max-age=1674
-Connection: close
-Content-Length: 1256
-Content-Type: text/html
-Date: Fri, 28 Feb 2025 20:55:15 GMT
-ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
-Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
-X-N: S
+Cache-Control: public, max-age=14400
+Content-Length: 472
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 02:07:39 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
 
-<!doctype html>
-<html>
-<head>
-    <title>Example Domain</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
-</head>
-
-<body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
-</div>
-</body>
-</html>
-" from example.com
-1: cached, expires at Fri Feb 28 21:24:09 2025
+[binary data]" from o.pki.goog
 1: Responding "HTTP/1.1 200 OK"
-2: "POST http://httpbin.org/post HTTP/1.1" from 127.0.0.1 @ 2025-02-28 20:55:15 UTC
-2: Requesting "POST http://httpbin.org/post HTTP/1.1
-" from httpbin.org
-3: "GET http://example.com/ HTTP/1.1" from 172.22.0.1 @ 2025-02-28 20:55:22 UTC
-3: in cache, valid
-4: "GET http://example.com/ HTTP/1.1" from 172.22.0.1 @ 2025-02-28 20:55:40 UTC
-4: in cache, valid
-5: "POST http://httpbin.org/post HTTP/1.1" from 172.22.0.1 @ 2025-02-28 20:55:40 UTC
-5: Requesting "POST http://httpbin.org/post HTTP/1.1
-" from httpbin.org
+5: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:39 UTC
+5: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
 2: Received "HTTP/1.1 200 OK
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: *
-Connection: keep-alive
-Content-Length: 488
-Content-Type: application/json
-Date: Fri, 28 Feb 2025 20:55:15 GMT
-Server: gunicorn/19.9.0
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 02:07:54 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
 
-{
-  "args": {}, 
-  "data": "", 
-  "files": {}, 
-  "form": {
-    "name": "test", 
-    "value": "123"
-  }, 
-  "headers": {
-    "Accept": "*/*", 
-    "Content-Length": "19", 
-    "Content-Type": "application/x-www-form-urlencoded", 
-    "Host": "httpbin.org", 
-    "Proxy-Connection": "Keep-Alive", 
-    "User-Agent": "curl/7.64.0", 
-    "X-Amzn-Trace-Id": "Root=1-67c222b3-03bb014841529a19320e6448"
-  }, 
-  "json": null, 
-  "origin": "174.109.92.244", 
-  "url": "http://httpbin.org/post"
-}
-" from httpbin.org
+[binary data]" from o.pki.goog
 2: Responding "HTTP/1.1 200 OK"
-6: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-02-28 20:56:15 UTC
-6: in cache, valid
-7: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-02-28 20:56:17 UTC
-7: in cache, valid
-5: Received "HTTP/1.1 200 OK
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: *
-Connection: keep-alive
-Content-Length: 487
-Content-Type: application/json
-Date: Fri, 28 Feb 2025 20:55:40 GMT
-Server: gunicorn/19.9.0
+3: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 02:07:54 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
 
-{
-  "args": {}, 
-  "data": "", 
-  "files": {}, 
-  "form": {
-    "name": "test", 
-    "value": "123"
-  }, 
-  "headers": {
-    "Accept": "*/*", 
-    "Content-Length": "19", 
-    "Content-Type": "application/x-www-form-urlencoded", 
-    "Host": "httpbin.org", 
-    "Proxy-Connection": "Keep-Alive", 
-    "User-Agent": "curl/8.7.1", 
-    "X-Amzn-Trace-Id": "Root=1-67c222cc-40d6f363769ed6c61a3be03e"
-  }, 
-  "json": null, 
-  "origin": "174.109.92.244", 
-  "url": "http://httpbin.org/post"
-}
-" from httpbin.org
-5: Responding "HTTP/1.1 200 OK"
-8: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-02-28 20:56:40 UTC
-8: Responding "HTTP/1.1 200 OK"
-9: "GET http://example.com/ HTTP/1.1" from 172.22.0.1 @ 2025-02-28 20:56:45 UTC
-9: in cache, valid
-10: "GET http://example.com/ HTTP/1.1" from 172.22.0.1 @ 2025-02-28 20:56:47 UTC
-10: in cache, valid
-8: Tunnel closed
-11: "GET http://example.com/ HTTP/1.1" from 172.22.0.1 @ 2025-02-28 21:11:52 UTC
-11: in cache, valid
-12: "POST http://httpbin.org/post HTTP/1.1" from 172.22.0.1 @ 2025-02-28 21:11:52 UTC
-12: Requesting "POST http://httpbin.org/post HTTP/1.1
-" from httpbin.org
-12: Received "HTTP/1.1 200 OK
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Origin: *
-Connection: keep-alive
-Content-Length: 487
-Content-Type: application/json
-Date: Fri, 28 Feb 2025 21:11:53 GMT
-Server: gunicorn/19.9.0
-
-{
-  "args": {}, 
-  "data": "", 
-  "files": {}, 
-  "form": {
-    "name": "test", 
-    "value": "123"
-  }, 
-  "headers": {
-    "Accept": "*/*", 
-    "Content-Length": "19", 
-    "Content-Type": "application/x-www-form-urlencoded", 
-    "Host": "httpbin.org", 
-    "Proxy-Connection": "Keep-Alive", 
-    "User-Agent": "curl/8.7.1", 
-    "X-Amzn-Trace-Id": "Root=1-67c22699-058f96c26bab50e533abd704"
-  }, 
-  "json": null, 
-  "origin": "174.109.92.244", 
-  "url": "http://httpbin.org/post"
-}
-" from httpbin.org
-12: Responding "HTTP/1.1 200 OK"
+[binary data]" from o.pki.goog
+3: Responding "HTTP/1.1 200 OK"
+7: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:54 UTC
+7: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+6: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:54 UTC
+6: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog

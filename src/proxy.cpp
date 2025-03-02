@@ -105,6 +105,9 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 
     std::string responseStr;
     Response response;
+    //strong exception safety guarantee
+    //If parsing fails, we catch the exception and return an error without modifying the proxy state.
+    //Remains in a consistent state as if the request never happened.
     try{
         responseStr = forwardToHost(req, requestId, clientIp, revalidateHeader);
         response = parseResponse(responseStr);
@@ -143,7 +146,7 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 
 
     //200 ok store new response in cache
-    if(response.status_code == 200){
+    else if(response.status_code == 200){
 
 
         std::string reason = "";
@@ -199,12 +202,20 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
         std::ostringstream line;
         line << response.version << " " << response.status_code << " " << response.status_msg;
         Logger::getInstance().logRespond(requestId, line.str());
-        
-
-
-
         return responseStr;
     }
+
+    else if(response.status_code == 404){
+        Logger::getInstance().logRespond(requestId, "HTTP/1.1 404 Not Found");
+        return responseStr;
+    }
+
+    else{
+        Logger::getInstance().logRespond(requestId, responseStr);
+        return responseStr;
+    }
+
+
 }
 
 std::string Proxy::handlePost(const Request &req, int requestId, const std::string &clientIp){
@@ -227,6 +238,10 @@ std::string Proxy::handlePost(const Request &req, int requestId, const std::stri
 
     std::string responseStr;
     Response response;
+    //strong guarantee
+    //The execution of forwardToHost operation either successfully returns a complete response string
+    //or if any exception occurs, it logs the error, and returns a standard "HTTP/1.1 502 Bad Gateway" response. 
+    ////Remains in a consistent state as if the request never happened.
     try{
         responseStr = forwardToHost(req, requestId, clientIp, "");
     }
@@ -236,7 +251,9 @@ std::string Proxy::handlePost(const Request &req, int requestId, const std::stri
         return "HTTP/1.1 502 Bad Gateway\r\n\r\n";
     }
 
-
+    //strong exception safety guarantee
+    //If parsing fails, we catch the exception and return an error without modifying the proxy state.
+    //Remains in a consistent state as if the request never happened.
     try{
         response = parseResponse(responseStr);
     }
@@ -289,7 +306,7 @@ std::string Proxy::handlePost(const Request &req, int requestId, const std::stri
 std::string Proxy::forwardToHost(const Request &req, int requestId, const std::string &clientIp, const std::string &revalidateHeader){
     std::string host = "";
     int port = 80;
-
+    //Locally implements Strong Exception Guarantee because if the conversion fails, it does not modify the originally expected state.
     if(req.headers.find("Host") != req.headers.end()){
         host = req.headers.at("Host");
         size_t colonPos = host.find(":");
@@ -315,7 +332,7 @@ std::string Proxy::forwardToHost(const Request &req, int requestId, const std::s
 
     std::string responseStr = "";
     std::vector<char> buffer(65536);
-
+    //basic guarantee
     while(true){
         int numBytes = recv(fd, buffer.data(), buffer.size() - 1, 0);
         if(numBytes <= 0){

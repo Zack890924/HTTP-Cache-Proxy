@@ -8,3 +8,4 @@ services:
     volumes:
       - ./logs:/var/log/erss
       - ./src:/app/src
+      - ./testcases:/app/testcases
