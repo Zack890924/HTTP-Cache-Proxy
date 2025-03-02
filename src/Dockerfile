@@ -20,4 +20,7 @@ RUN chmod +x /app/my_proxy
 
 EXPOSE 12345
 
+
+
+# CMD ["tail", "-f", "/dev/null"]
 CMD ["/bin/bash", "/app/run.sh"]
