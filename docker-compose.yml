@@ -4,7 +4,9 @@ services:
     build: .
     container_name: myproxy_container
     ports:
-      - "12345:12345"
+      - ports: "0.0.0.0:12345:12345"
+    restart: always
+
     volumes:
       - ./logs:/var/log/erss
       - ./src:/app/src
