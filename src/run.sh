@@ -1,8 +1,10 @@
 #!/bin/bash
 # run.sh: 
 
+set -x
+
 echo "==== Starting Proxy Server ===="
-./my_proxy &  
+/app/my_proxy &
 
 echo "==== Wait for proxy to fully start ===="
 sleep 5

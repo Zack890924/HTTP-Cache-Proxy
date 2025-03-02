@@ -6,7 +6,8 @@
 #include "utils.hpp"
 #include <sstream>
 #include <vector>
-
+#include <iomanip>
+#include <chrono>
 
 int connectToOther(const std::string &ip, const std::string &portStr){
     struct addrinfo hints, *serverInfo;
@@ -277,4 +278,23 @@ std::string requestToString(const Request &request, const std::string &revalidat
     oss << "\r\n";
     oss << request.body;
     return oss.str();
+}
+
+
+
+std::chrono::system_clock::time_point parseHttpDateToTimePoint(const std::string &httpDate) {
+
+    std::tm tm = {};
+    std::istringstream iss(httpDate);
+
+    iss >> std::get_time(&tm, "%a, %d %b %Y %H:%M:%S");
+    if (iss.fail()) {
+        throw std::runtime_error("Failed to parse Expires header");
+    }
+
+    time_t tt = timegm(&tm); 
+    if (tt == -1) {
+        throw std::runtime_error("Failed to convert parsed time to UTC.");
+    }
+    return std::chrono::system_clock::from_time_t(tt);
 }

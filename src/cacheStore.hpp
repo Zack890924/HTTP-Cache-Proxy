@@ -31,6 +31,8 @@ class CacheStore{
 
 
         void moveToFront(const std::string &key);
+
+        
        
         
         
@@ -51,7 +53,9 @@ class CacheStore{
 
         void storeData(const std::string &key, const Response response);
 
-        
+
+        std::pair<std::chrono::system_clock::time_point, bool> parseCacheControl(const std::map<std::string, std::string>& headers);
+        void updateCacheHeaders(const std::string &key, const Response &newResp);
 
         
 };

@@ -4,7 +4,7 @@
 
 #include <string>
 #include <map>
-
+#include <chrono>
 
 typedef struct {
     struct sockaddr_in left_addr;
@@ -39,6 +39,7 @@ Response parseResponse(const std::string &response);
 std::string responseToString(const Response &response);
 std::string requestToString(const Request &request, const std::string &revalidateHeader);
 std::string handleChunk(const std::string &chunkedBody);
+std::chrono::system_clock::time_point parseHttpDateToTimePoint(const std::string &httpDate);
 
 
 #endif // UTILS_HPP

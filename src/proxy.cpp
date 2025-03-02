@@ -133,13 +133,18 @@ std::string Proxy::handleGet(const Request &req, int requestId, const std::strin
 
 
     if(response.status_code == 304 && mustRevalidate){
+        CacheStore::getInstance().updateCacheHeaders(key, response);
+        
 
-        CacheStore::getInstance().storeData(key, response);
-        std::string finalStr = responseToString(cacheResponse);
+        Response updatedCacheResp;
+        std::string temp;
+        CacheStore::getInstance().fetchData(key, updatedCacheResp, temp);
+
+        std::string finalStr = responseToString(updatedCacheResp);
         //logger
         //304 NotModified->Using Old
         std::ostringstream line;
-        line << cacheResponse.version << " (304 Not Modified -> Using Old)";
+        line << updatedCacheResp.version << " (304 Not Modified -> Using Old)";
         Logger::getInstance().logRespond(requestId, line.str());
         return finalStr;
     }

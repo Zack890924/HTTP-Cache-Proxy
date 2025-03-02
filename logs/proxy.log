@@ -1,478 +1,1946 @@
-0: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:34 UTC
-1: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:34 UTC
-1: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-0: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-2: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:54 UTC
-2: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-3: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:07:54 UTC
-3: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-0: Received "HTTP/1.1 200 OK
-Cache-Control: public, max-age=14400
-Content-Length: 472
-Content-Type: application/ocsp-response
-Date: Sun, 02 Mar 2025 02:07:34 GMT
-Server: ocsp_responder
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 0
-
-[binary data]" from o.pki.goog
-0: Responding "HTTP/1.1 200 OK"
-4: "POST http://ocsp.sectigo.com/ HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:34 UTC
-4: Requesting "POST http://ocsp.sectigo.com/ HTTP/1.1
-" from ocsp.sectigo.com
-1: Received "HTTP/1.1 200 OK
-Cache-Control: public, max-age=14400
-Content-Length: 472
-Content-Type: application/ocsp-response
-Date: Sun, 02 Mar 2025 02:07:39 GMT
-Server: ocsp_responder
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 0
-
-[binary data]" from o.pki.goog
-1: Responding "HTTP/1.1 200 OK"
-5: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:39 UTC
-5: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-2: Received "HTTP/1.1 200 OK
-Cache-Control: public, max-age=14400
-Content-Length: 471
-Content-Type: application/ocsp-response
-Date: Sun, 02 Mar 2025 02:07:54 GMT
-Server: ocsp_responder
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 0
-
-[binary data]" from o.pki.goog
-2: Responding "HTTP/1.1 200 OK"
-3: Received "HTTP/1.1 200 OK
-Cache-Control: public, max-age=14400
-Content-Length: 471
-Content-Type: application/ocsp-response
-Date: Sun, 02 Mar 2025 02:07:54 GMT
-Server: ocsp_responder
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 0
-
-[binary data]" from o.pki.goog
-3: Responding "HTTP/1.1 200 OK"
-7: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:54 UTC
-7: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-6: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:11:54 UTC
-6: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
-" from o.pki.goog
-0: "GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:41:52 UTC
+0: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:27:57 UTC
 0: not in cache
-0: Requesting "GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1" from detectportal.firefox.com
-1: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:41:52 UTC
-1: not in cache
-1: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
-2: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:42:12 UTC
-2: Responding "HTTP/1.1 200 OK"
-3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:42:12 UTC
-3: Responding "HTTP/1.1 200 OK"
-2: Tunnel closed
-4: "CONNECT oldnavy.gap.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:08 UTC
-4: Responding "HTTP/1.1 200 OK"
-4: Tunnel closed
-5: "CONNECT oldnavy.gap.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:08 UTC
-5: Responding "HTTP/1.1 200 OK"
-5: Tunnel closed
-6: "CONNECT oldnavy.gap.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:08 UTC
-6: Responding "HTTP/1.1 200 OK"
-6: Tunnel closed
-7: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:08 UTC
-7: Responding "HTTP/1.1 200 OK"
-7: Tunnel closed
-8: "CONNECT success.outsystems.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:08 UTC
-8: Responding "HTTP/1.1 200 OK"
-8: Tunnel closed
-9: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:09 UTC
-9: Responding "HTTP/1.1 200 OK"
-3: Tunnel closed
-10: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:45:42 UTC
-10: Responding "HTTP/1.1 200 OK"
-10: Tunnel closed
-11: "CONNECT www.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:47:28 UTC
-11: Responding "HTTP/1.1 200 OK"
-11: Tunnel closed
-9: Tunnel closed
+0: Requesting "GET http://example.com/ HTTP/1.1" from example.com
 0: Received "HTTP/1.1 200 OK
-Age: 73694
-Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
-Content-Length: 8
-Content-Type: text/plain
-Date: Sat, 01 Mar 2025 06:13:39 GMT
-Server: nginx
-Via: 1.1 google
+Cache-Control: max-age=1891
+Connection: close
+Content-Length: 1256
+Content-Type: text/html
+Date: Sun, 02 Mar 2025 17:27:57 GMT
+ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
+Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
+X-N: S
 
-success
-" from detectportal.firefox.com
-1: Received "HTTP/1.1 200 OK
-Age: 73694
-Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
-Content-Length: 8
-Content-Type: text/plain
-Date: Sat, 01 Mar 2025 06:13:39 GMT
-Server: nginx
-Via: 1.1 google
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
 
-success
-" from detectportal.firefox.com
-1: cached, expires at 
-0: cached, expires at 
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    " from example.com
+0: cached, expires at Sun Mar  2 17:59:28 2025
 0: Responding "HTTP/1.1 200 OK"
-1: Responding "HTTP/1.1 200 OK"
-12: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:54:24 UTC
-12: Responding "HTTP/1.1 200 OK"
-13: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:54:24 UTC
-13: Responding "HTTP/1.1 200 OK"
-14: "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:54:24 UTC
-14: Requesting "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1
-" from o.pki.goog
-1: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:57:25 UTC
-1: Responding "HTTP/1.1 200 OK"
-0: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:57:25 UTC
-0: Responding "HTTP/1.1 200 OK"
-3: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:57:29 UTC
+1: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:27:59 UTC
+1: in cache, valid
+2: "GET http://example.com/nonexistentzzzzz HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:27:59 UTC
+2: not in cache
+2: Requesting "GET http://example.com/nonexistentzzzzz HTTP/1.1" from example.com
+2: Received "HTTP/1.1 404 Not Found
+Accept-Ranges: bytes
+Cache-Control: max-age=0, no-cache, no-store
+Connection: close
+Content-Length: 1256
+Content-Type: text/html
+Date: Sun, 02 Mar 2025 17:27:59 GMT
+ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
+Expires: Sun, 02 Mar 2025 17:27:59 GMT
+Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
+Pragma: no-cache
+Server: AkamaiNetStorage
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    " from example.com
+2: Responding "HTTP/1.1 404 Not Found"
+3: "POST http://httpbin.org/post HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:27:59 UTC
+3: Requesting "POST http://httpbin.org/post HTTP/1.1
+" from httpbin.org
+3: Received "HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 485
+Content-Type: application/json
+Date: Sun, 02 Mar 2025 17:28:00 GMT
+Server: gunicorn/19.9.0
+
+[binary data]" from httpbin.org
 3: Responding "HTTP/1.1 200 OK"
-2: Responding "HTTP/1.1 400 Bad Request"
-4: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 02:57:32 UTC
-4: Responding "HTTP/1.1 200 OK"
-4: Tunnel closed
-5: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-5: Responding "HTTP/1.1 200 OK"
-5: Tunnel closed
-6: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-6: Responding "HTTP/1.1 200 OK"
-6: Tunnel closed
-7: "CONNECT facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-7: Responding "HTTP/1.1 200 OK"
-7: Tunnel closed
-8: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-8: Responding "HTTP/1.1 200 OK"
-8: Tunnel closed
-9: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-9: Responding "HTTP/1.1 200 OK"
-9: Tunnel closed
-10: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
+4: "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:29:00 UTC
+4: not in cache
+4: Requesting "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from www.mocky.io
+4: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 17:29:00 GMT
+Sozu-Id: 01JNBYEW54RF9F82H000NPMPAE
+
+[binary data]" from www.mocky.io
+4: Responding "HTTP/1.1 404 Not Found"
+5: "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:32:02 UTC
+5: not in cache
+5: Requesting "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from www.mocky.io
+5: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 17:32:03 GMT
+Sozu-Id: 01JNBYMES6TMVY7Y58H5BMKBXZ
+
+[binary data]" from www.mocky.io
+5: Responding "HTTP/1.1 404 Not Found"
+6: "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:35:06 UTC
+6: not in cache
+6: Requesting "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from www.mocky.io
+6: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 17:35:06 GMT
+Sozu-Id: 01JNBYT22VCN4R0K7NHD99GYZK
+
+[binary data]" from www.mocky.io
+6: Responding "HTTP/1.1 404 Not Found"
+7: "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:38:19 UTC
+7: not in cache
+7: Requesting "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from www.mocky.io
+7: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 17:38:19 GMT
+Sozu-Id: 01JNBYZY1F93PHJTT6X870WCTY
+
+[binary data]" from www.mocky.io
+7: Responding "HTTP/1.1 404 Not Found"
+8: "GET http://www.mocky.io/v2/5e589a932f0000bd0c962006 HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:41:19 UTC
+8: not in cache
+8: Requesting "GET http://www.mocky.io/v2/5e589a932f0000bd0c962006 HTTP/1.1" from www.mocky.io
+8: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 17:41:19 GMT
+Sozu-Id: 01JNBZ5E9RHKG3FFDC37F5GS3W
+
+[binary data]" from www.mocky.io
+8: Responding "HTTP/1.1 404 Not Found"
+9: "GET http://www.mocky.io/v2/5e589a932f0000bd0c962006 HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:44:21 UTC
+9: not in cache
+9: Requesting "GET http://www.mocky.io/v2/5e589a932f0000bd0c962006 HTTP/1.1" from www.mocky.io
+9: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 17:44:22 GMT
+Sozu-Id: 01JNBZB0DQP5PR615JTGZAP1T3
+
+[binary data]" from www.mocky.io
+9: Responding "HTTP/1.1 404 Not Found"
+10: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:47:25 UTC
+10: not in cache
+10: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+10: Received "HTTP/1.1 200 OK
+Arr-Disable-Session-Affinity: True
+Cache-Control: no-cache, no-store
+Content-Type: image/jpeg; charset=utf-8
+Date: Sun, 02 Mar 2025 17:47:25 GMT
+Expires: -1
+Pragma: no-cache
+Server: Microsoft-IIS/10.0
+Trailer: X-HttpWatch-Sample
+Transfer-Encoding: chunked
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+
+[binary data]" from www.httpwatch.com
+10: not cacheable because Cache-Control: no-store
 10: Responding "HTTP/1.1 200 OK"
-10: Tunnel closed
-11: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-11: Responding "HTTP/1.1 200 OK"
-11: Tunnel closed
-12: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-12: Responding "HTTP/1.1 200 OK"
-12: Tunnel closed
-13: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-13: Responding "HTTP/1.1 200 OK"
-13: Tunnel closed
-14: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-14: Responding "HTTP/1.1 200 OK"
-14: Tunnel closed
-15: Responding "HTTP/1.1 400 Bad Request"
-16: "CONNECT www.amazon.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-16: Responding "HTTP/1.1 200 OK"
-16: Tunnel closed
-17: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-17: Responding "HTTP/1.1 200 OK"
-17: Tunnel closed
-18: "CONNECT temuaffiliateprogram.pxf.io:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-18: Responding "HTTP/1.1 200 OK"
-18: Tunnel closed
-19: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:23 UTC
-19: Responding "HTTP/1.1 200 OK"
-19: Tunnel closed
-20: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:24 UTC
-20: Responding "HTTP/1.1 200 OK"
-20: Tunnel closed
-21: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:24 UTC
-21: Responding "HTTP/1.1 200 OK"
-21: Tunnel closed
-22: "CONNECT i.ytimg.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:24 UTC
-22: Responding "HTTP/1.1 200 OK"
-22: Tunnel closed
-23: Responding "HTTP/1.1 400 Bad Request"
-24: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-24: Responding "HTTP/1.1 200 OK"
-24: Tunnel closed
-25: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-25: Responding "HTTP/1.1 200 OK"
-25: Tunnel closed
-26: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-26: Responding "HTTP/1.1 200 OK"
-26: Tunnel closed
-27: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-27: Responding "HTTP/1.1 200 OK"
-27: Tunnel closed
-28: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-28: Responding "HTTP/1.1 200 OK"
-28: Tunnel closed
-29: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-29: Responding "HTTP/1.1 200 OK"
-29: Tunnel closed
-30: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-30: Responding "HTTP/1.1 200 OK"
-30: Tunnel closed
-31: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-31: Responding "HTTP/1.1 200 OK"
-31: Tunnel closed
-32: "CONNECT rr4---sn-5hneknek.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-32: Responding "HTTP/1.1 200 OK"
-32: Tunnel closed
-33: "CONNECT rr4---sn-5hneknek.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:29 UTC
-33: Responding "HTTP/1.1 200 OK"
-33: Tunnel closed
-34: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:30 UTC
-34: Responding "HTTP/1.1 200 OK"
-34: Tunnel closed
-35: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:30 UTC
-35: Responding "HTTP/1.1 200 OK"
-3: Tunnel closed
-36: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:35 UTC
-36: Responding "HTTP/1.1 200 OK"
-36: Tunnel closed
-37: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:35 UTC
-37: Responding "HTTP/1.1 200 OK"
-37: Tunnel closed
-38: "CONNECT rr4---sn-5hneknek.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:35 UTC
-38: Responding "HTTP/1.1 200 OK"
-38: Tunnel closed
-39: "CONNECT rr4---sn-5hneknek.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:38 UTC
-39: Responding "HTTP/1.1 200 OK"
-39: Tunnel closed
-40: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 03:00:43 UTC
-40: Responding "HTTP/1.1 200 OK"
-0: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:46:31 UTC
-0: Responding "HTTP/1.1 200 Connection Established"
-1: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:46:34 UTC
-1: Responding "HTTP/1.1 200 Connection Established"
-2: "POST http://o.pki.goog/we2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:46:35 UTC
-2: Requesting "POST http://o.pki.goog/we2 HTTP/1.1
+11: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+12: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+15: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+15: in cache, valid
+12: in cache, valid
+13: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+13: in cache, valid
+11: in cache, valid
+19: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+19: in cache, valid
+17: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+20: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+20: in cache, valid
+16: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+16: in cache, valid
+17: in cache, valid
+14: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+14: in cache, valid
+18: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 17:49:41 UTC
+18: in cache, valid
+0: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:34:42 UTC
+0: not in cache
+0: Requesting "GET http://example.com/ HTTP/1.1" from example.com
+0: Received "HTTP/1.1 200 OK
+Cache-Control: max-age=919
+Connection: close
+Content-Length: 1256
+Content-Type: text/html
+Date: Sun, 02 Mar 2025 21:34:43 GMT
+ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
+Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    " from example.com
+0: cached, expires at Sun Mar  2 21:50:02 2025
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:34:45 UTC
+1: in cache, valid
+2: "GET http://example.com/nonexistentzzzzz HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:34:45 UTC
+2: not in cache
+2: Requesting "GET http://example.com/nonexistentzzzzz HTTP/1.1" from example.com
+2: Received "HTTP/1.1 404 Not Found
+Accept-Ranges: bytes
+Cache-Control: max-age=0, no-cache, no-store
+Connection: close
+Content-Length: 1256
+Content-Type: text/html
+Date: Sun, 02 Mar 2025 21:34:45 GMT
+ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
+Expires: Sun, 02 Mar 2025 21:34:45 GMT
+Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
+Pragma: no-cache
+Server: AkamaiNetStorage
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    " from example.com
+2: Responding "HTTP/1.1 404 Not Found"
+3: "POST http://httpbin.org/post HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:34:45 UTC
+3: Requesting "POST http://httpbin.org/post HTTP/1.1
+" from httpbin.org
+0: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:47:00 UTC
+0: not in cache
+0: Requesting "GET http://example.com/ HTTP/1.1" from example.com
+0: Received "HTTP/1.1 200 OK
+Cache-Control: max-age=2942
+Connection: close
+Content-Length: 1256
+Content-Type: text/html
+Date: Sun, 02 Mar 2025 21:47:01 GMT
+ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
+Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
+X-N: S
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    " from example.com
+0: cached, expires at Sun Mar  2 22:36:03 2025
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://example.com/ HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:47:03 UTC
+1: in cache, valid
+2: "GET http://example.com/nonexistentzzzzz HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:47:03 UTC
+2: not in cache
+2: Requesting "GET http://example.com/nonexistentzzzzz HTTP/1.1" from example.com
+2: Received "HTTP/1.1 404 Not Found
+Accept-Ranges: bytes
+Cache-Control: max-age=0, no-cache, no-store
+Connection: close
+Content-Length: 1256
+Content-Type: text/html
+Date: Sun, 02 Mar 2025 21:47:03 GMT
+ETag: "84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134"
+Expires: Sun, 02 Mar 2025 21:47:03 GMT
+Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT
+Pragma: no-cache
+Server: AkamaiNetStorage
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    " from example.com
+2: Responding "HTTP/1.1 404 Not Found"
+3: "POST http://httpbin.org/post HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:47:03 UTC
+3: Requesting "POST http://httpbin.org/post HTTP/1.1
+" from httpbin.org
+4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:19 UTC
+4: Responding "HTTP/1.1 200 Connection Established"
+5: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:19 UTC
+5: Responding "HTTP/1.1 200 Connection Established"
+6: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:19 UTC
+6: Responding "HTTP/1.1 200 Connection Established"
+7: "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:20 UTC
+7: Requesting "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1
 " from o.pki.goog
-3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:46:37 UTC
-3: Responding "HTTP/1.1 200 Connection Established"
-0: Tunnel closed
-4: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:22 UTC
-4: Responding "HTTP/1.1 200 Connection Established"
-4: Tunnel closed
-5: "CONNECT i.ytimg.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:22 UTC
-5: Responding "HTTP/1.1 200 Connection Established"
-5: Tunnel closed
-6: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-6: Responding "HTTP/1.1 200 Connection Established"
-6: Tunnel closed
-7: "CONNECT accounts.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-7: Responding "HTTP/1.1 200 Connection Established"
-7: Tunnel closed
-8: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
+8: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:21 UTC
 8: Responding "HTTP/1.1 200 Connection Established"
-8: Tunnel closed
-9: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-9: Responding "HTTP/1.1 200 Connection Established"
-9: Tunnel closed
-10: "CONNECT rr4---sn-q4fl6nds.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
+9: "POST http://ocsp.digicert.com/ HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:21 UTC
+9: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1
+" from ocsp.digicert.com
+10: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
 10: Responding "HTTP/1.1 200 Connection Established"
-10: Tunnel closed
-11: "CONNECT rr4---sn-q4fl6nds.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-11: Responding "HTTP/1.1 200 Connection Established"
-11: Tunnel closed
-12: "CONNECT play.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-12: Responding "HTTP/1.1 200 Connection Established"
-12: Tunnel closed
-13: "CONNECT play.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
+11: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
+13: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
 13: Responding "HTTP/1.1 200 Connection Established"
-13: Tunnel closed
-14: Responding "HTTP/1.1 400 Bad Request"
-15: Responding "HTTP/1.1 400 Bad Request"
-16: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-16: Responding "HTTP/1.1 200 Connection Established"
-16: Tunnel closed
-17: Responding "HTTP/1.1 400 Bad Request"
-18: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-18: Responding "HTTP/1.1 200 Connection Established"
-18: Tunnel closed
-19: "CONNECT play.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-19: Responding "HTTP/1.1 200 Connection Established"
-19: Tunnel closed
-20: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-20: Responding "HTTP/1.1 200 Connection Established"
-20: Tunnel closed
-21: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-21: Responding "HTTP/1.1 200 Connection Established"
-21: Tunnel closed
-22: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-22: Responding "HTTP/1.1 200 Connection Established"
-22: Tunnel closed
-23: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:23 UTC
-23: Responding "HTTP/1.1 200 Connection Established"
-23: Tunnel closed
-24: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-24: Responding "HTTP/1.1 200 Connection Established"
-24: Tunnel closed
-25: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-25: Responding "HTTP/1.1 200 Connection Established"
-25: Tunnel closed
-26: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-26: Responding "HTTP/1.1 200 Connection Established"
-26: Tunnel closed
-27: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-27: Responding "HTTP/1.1 200 Connection Established"
-27: Tunnel closed
-28: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-28: Responding "HTTP/1.1 200 Connection Established"
-28: Tunnel closed
-29: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-29: Responding "HTTP/1.1 200 Connection Established"
-29: Tunnel closed
-30: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-30: Responding "HTTP/1.1 200 Connection Established"
-30: Tunnel closed
-31: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:24 UTC
-31: Responding "HTTP/1.1 200 Connection Established"
-31: Tunnel closed
-32: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:49:41 UTC
-32: Responding "HTTP/1.1 200 Connection Established"
-1: Tunnel closed
-33: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:50:13 UTC
-33: Responding "HTTP/1.1 200 Connection Established"
-0: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:34 UTC
-0: Responding "HTTP/1.1 200 Connection Established"
-3: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:35 UTC
-3: Responding "HTTP/1.1 200 Connection Established"
-2: "CONNECT facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:35 UTC
-2: Responding "HTTP/1.1 200 Connection Established"
-3: Tunnel closed
-4: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:35 UTC
-4: Responding "HTTP/1.1 200 Connection Established"
-4: Tunnel closed
-5: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:35 UTC
-5: Responding "HTTP/1.1 200 Connection Established"
-5: Tunnel closed
-6: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:35 UTC
-6: Responding "HTTP/1.1 200 Connection Established"
-1: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:35 UTC
-1: Responding "HTTP/1.1 200 Connection Established"
-6: Tunnel closed
-7: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:52:37 UTC
-7: Responding "HTTP/1.1 200 Connection Established"
-1: Tunnel closed
-8: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-8: Responding "HTTP/1.1 200 Connection Established"
-8: Tunnel closed
-9: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-9: Responding "HTTP/1.1 200 Connection Established"
-9: Tunnel closed
-10: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-10: Responding "HTTP/1.1 200 Connection Established"
-10: Tunnel closed
-11: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
 11: Responding "HTTP/1.1 200 Connection Established"
-11: Tunnel closed
-12: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-12: Responding "HTTP/1.1 200 Connection Established"
-12: Tunnel closed
-13: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-13: Responding "HTTP/1.1 200 Connection Established"
-13: Tunnel closed
-14: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-14: Responding "HTTP/1.1 200 Connection Established"
-14: Tunnel closed
-15: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
+15: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
 15: Responding "HTTP/1.1 200 Connection Established"
 15: Tunnel closed
-16: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
-16: Responding "HTTP/1.1 200 Connection Established"
-16: Tunnel closed
-17: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:26 UTC
+11: Tunnel closed
+14: "CONNECT facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
+14: Responding "HTTP/1.1 200 Connection Established"
+12: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
+12: Responding "HTTP/1.1 200 Connection Established"
+17: "CONNECT static.xx.fbcdn.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:23 UTC
 17: Responding "HTTP/1.1 200 Connection Established"
+13: Tunnel closed
 17: Tunnel closed
-18: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:28 UTC
+12: Tunnel closed
+18: "CONNECT www.youtube.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:25 UTC
 18: Responding "HTTP/1.1 200 Connection Established"
-18: Tunnel closed
-19: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:29 UTC
+19: "CONNECT i.ytimg.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:26 UTC
 19: Responding "HTTP/1.1 200 Connection Established"
-19: Tunnel closed
-20: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:29 UTC
+20: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:26 UTC
 20: Responding "HTTP/1.1 200 Connection Established"
 20: Tunnel closed
-21: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:29 UTC
-21: Responding "HTTP/1.1 200 Connection Established"
-21: Tunnel closed
-22: "POST http://o.pki.goog/we2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 04:55:29 UTC
-22: Requesting "POST http://o.pki.goog/we2 HTTP/1.1
+22: "CONNECT accounts.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:26 UTC
+22: Responding "HTTP/1.1 200 Connection Established"
+23: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:26 UTC
+23: Responding "HTTP/1.1 200 Connection Established"
+24: "CONNECT rr5---sn-5hne6ns6.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:26 UTC
+24: Responding "HTTP/1.1 200 Connection Established"
+16: Responding "HTTP/1.1 400 Bad Request"
+25: "CONNECT rr5---sn-5hne6ns6.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:28 UTC
+25: Responding "HTTP/1.1 200 Connection Established"
+24: Tunnel closed
+26: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:29 UTC
+26: Responding "HTTP/1.1 200 Connection Established"
+25: Tunnel closed
+27: "CONNECT play.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:31 UTC
+27: Responding "HTTP/1.1 200 Connection Established"
+21: Responding "HTTP/1.1 400 Bad Request"
+28: "CONNECT play.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:31 UTC
+28: Responding "HTTP/1.1 200 Connection Established"
+28: Tunnel closed
+29: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:47:34 UTC
+29: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
 " from o.pki.goog
-0: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:02:16 UTC
-0: Responding "HTTP/1.1 200 Connection Established"
-0: Tunnel closed
-1: "CONNECT merino.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:04:06 UTC
-1: Responding "HTTP/1.1 200 Connection Established"
-1: Tunnel closed
-2: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:07:37 UTC
-2: Responding "HTTP/1.1 200 Connection Established"
-4: "GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:07:39 UTC
-3: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:07:39 UTC
-3: not in cache
-3: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
-4: not in cache
-4: Requesting "GET http://detectportal.firefox.com/success.txt?ipv6 HTTP/1.1" from detectportal.firefox.com
-5: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:07:39 UTC
-5: Responding "HTTP/1.1 200 Connection Established"
+3: Received "HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Length: 485
+Content-Type: application/json
+Date: Sun, 02 Mar 2025 21:47:03 GMT
+Server: gunicorn/19.9.0
+
+[binary data]" from httpbin.org
+3: Responding "HTTP/1.1 200 OK"
+30: Responding "HTTP/1.1 400 Bad Request"
+31: Responding "HTTP/1.1 400 Bad Request"
+32: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:48:03 UTC
+32: Responding "HTTP/1.1 200 Connection Established"
+32: Tunnel closed
+33: "CONNECT play.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:48:03 UTC
+33: Responding "HTTP/1.1 200 Connection Established"
+33: Tunnel closed
+34: "CONNECT rr5---sn-5hne6ns6.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:48:04 UTC
+34: Responding "HTTP/1.1 200 Connection Established"
+34: Tunnel closed
+35: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:48:04 UTC
+35: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+6: Tunnel closed
+36: "CONNECT rr5---sn-5hne6ns6.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:12 UTC
+36: Responding "HTTP/1.1 200 Connection Established"
+36: Tunnel closed
+37: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:12 UTC
+37: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+14: Tunnel closed
+10: Tunnel closed
+38: "POST http://o.pki.goog/wr2 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:14 UTC
+38: Requesting "POST http://o.pki.goog/wr2 HTTP/1.1
+" from o.pki.goog
+39: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:14 UTC
+39: not in cache
+39: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
 5: Tunnel closed
-6: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:11:00 UTC
-6: Responding "HTTP/1.1 200 Connection Established"
-6: Tunnel closed
-7: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:11:00 UTC
-7: Responding "HTTP/1.1 200 Connection Established"
-7: Tunnel closed
-8: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:11:00 UTC
-8: Responding "HTTP/1.1 200 Connection Established"
-8: Tunnel closed
-2: Tunnel closed
-0: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:13:16 UTC
-0: Responding "HTTP/1.1 200 Connection Established"
-0: Tunnel closed
-1: "CONNECT www.google.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:13:44 UTC
-1: Responding "HTTP/1.1 200 Connection Established"
-1: Tunnel closed
-2: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:15:49 UTC
-2: Responding "HTTP/1.1 200 Connection Established"
-3: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:15:50 UTC
-3: Responding "HTTP/1.1 200 Connection Established"
-4: "CONNECT ads-img.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:15:50 UTC
-4: Responding "HTTP/1.1 200 Connection Established"
-5: "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:15:50 UTC
-5: Requesting "POST http://o.pki.goog/s/wr3/UTA HTTP/1.1
-" from o.pki.goog
-3: Tunnel closed
-6: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:18:40 UTC
-6: Responding "HTTP/1.1 200 Connection Established"
-6: Tunnel closed
-7: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:18:40 UTC
-7: Responding "HTTP/1.1 200 Connection Established"
-4: Tunnel closed
-8: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:18:42 UTC
-8: Responding "HTTP/1.1 200 Connection Established"
-8: Tunnel closed
-2: Tunnel closed
-9: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 05:19:48 UTC
-9: Responding "HTTP/1.1 200 Connection Established"
-5: Received "HTTP/1.1 200 OK
+40: "CONNECT rr5---sn-5hne6ns6.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:15 UTC
+40: Responding "HTTP/1.1 200 Connection Established"
+40: Tunnel closed
+41: "CONNECT rr5---sn-5hne6ns6.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:15 UTC
+41: Responding "HTTP/1.1 200 Connection Established"
+41: Tunnel closed
+42: "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from 127.0.0.1 @ 2025-03-02 21:50:15 UTC
+42: not in cache
+42: Requesting "GET http://www.mocky.io/v2/5e58a7d92f0000851296205a HTTP/1.1" from www.mocky.io
+22: Tunnel closed
+19: Tunnel closed
+43: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:16 UTC
+43: not in cache
+43: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+44: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:16 UTC
+44: not in cache
+44: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+26: Tunnel closed
+45: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:19 UTC
+45: Responding "HTTP/1.1 200 Connection Established"
+45: Tunnel closed
+46: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:19 UTC
+46: not in cache
+46: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+27: Tunnel closed
+47: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:50:23 UTC
+47: not in cache
+47: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+7: Received "HTTP/1.1 200 OK
 Cache-Control: public, max-age=14400
 Content-Length: 471
 Content-Security-Policy-Report-Only: script-src 'none'; form-action 'none'; frame-src 'none'; report-uri https://csp.withgoogle.com/csp/scaffolding/sytroprc:52:0
 Content-Type: application/ocsp-response
 Cross-Origin-Opener-Policy-Report-Only: same-origin; report-to=sytroprc:52:0
-Date: Sun, 02 Mar 2025 05:15:50 GMT
+Date: Sun, 02 Mar 2025 21:47:20 GMT
 Report-To: {"group":"sytroprc:52:0","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/scaffolding/sytroprc:52:0"}],}
 Server: scaffolding on HTTPServer2
 X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 0
 
 [binary data]" from o.pki.goog
-5: Responding "HTTP/1.1 200 OK"
+7: Responding "HTTP/1.1 200 OK"
+48: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:20 UTC
+48: not in cache
+48: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+29: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 21:47:34 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+
+[binary data]" from o.pki.goog
+29: Responding "HTTP/1.1 200 OK"
+49: "CONNECT rr3---sn-q4flrnee.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:34 UTC
+49: Responding "HTTP/1.1 200 Connection Established"
+49: Tunnel closed
+50: "CONNECT rr3---sn-q4flrnee.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:34 UTC
+50: Responding "HTTP/1.1 200 Connection Established"
+50: Tunnel closed
+51: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:34 UTC
+51: not in cache
+51: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+8: Tunnel closed
+52: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:45 UTC
+52: not in cache
+52: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+4: Tunnel closed
+53: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:50 UTC
+53: not in cache
+53: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+18: Tunnel closed
+54: "CONNECT rr3---sn-q4flrnee.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:51 UTC
+54: Responding "HTTP/1.1 200 Connection Established"
+54: Tunnel closed
+55: "CONNECT rr3---sn-q4flrnee.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:51 UTC
+55: Responding "HTTP/1.1 200 Connection Established"
+55: Tunnel closed
+56: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:51:51 UTC
+56: not in cache
+56: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+35: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 21:48:04 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+
+[binary data]" from o.pki.goog
+35: Responding "HTTP/1.1 200 OK"
+57: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:52:04 UTC
+57: not in cache
+57: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+23: Tunnel closed
+58: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:52:18 UTC
+58: Responding "HTTP/1.1 200 Connection Established"
+58: Tunnel closed
+59: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:52:18 UTC
+59: not in cache
+59: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+42: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 21:50:16 GMT
+Sozu-Id: 01JNCDD8W8N7BDKA53T35BFVW6
+
+[binary data]" from www.mocky.io
+42: Responding "HTTP/1.1 404 Not Found"
+60: "CONNECT rr3---sn-q4flrnee.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:53:16 UTC
+60: Responding "HTTP/1.1 200 Connection Established"
+60: Tunnel closed
+61: "CONNECT rr3---sn-q4flrnee.googlevideo.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:53:16 UTC
+61: Responding "HTTP/1.1 200 Connection Established"
+61: Tunnel closed
+62: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:53:16 UTC
+62: not in cache
+62: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+37: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 21:50:12 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+
+[binary data]" from o.pki.goog
+37: Responding "HTTP/1.1 200 OK"
+63: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:54:13 UTC
+63: not in cache
+63: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+38: Received "HTTP/1.1 200 OK
+Cache-Control: public, max-age=14400
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 21:50:14 GMT
+Server: ocsp_responder
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+
+[binary data]" from o.pki.goog
+38: Responding "HTTP/1.1 200 OK"
+64: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:54:14 UTC
+64: not in cache
+64: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+9: Received "HTTP/1.1 200 OK
+Akamai-GRN: 0.956adc17.1740952041.3a4168a2
+Cache-Control: max-age=3125
+Connection: keep-alive
+Content-Length: 471
+Content-Type: application/ocsp-response
+Date: Sun, 02 Mar 2025 21:47:21 GMT
+Expires: Sun, 02 Mar 2025 22:39:26 GMT
+Server-Timing: ak_p; desc="1740952041514_400321173_977365154_11_644_51_0_-";dur=1
+
+[binary data]" from ocsp.digicert.com
+9: Responding "HTTP/1.1 200 OK"
+65: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 21:55:41 UTC
+65: not in cache
+65: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+39: Received "HTTP/1.1 200 OK
+Age: 78921
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+39: cached, expires at 
+39: Responding "HTTP/1.1 200 OK"
+66: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:00:24 UTC
+66: in cache, but expired at 
+66: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+43: Received "HTTP/1.1 200 OK
+Age: 79185
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+44: Received "HTTP/1.1 200 OK
+Age: 79185
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+43: cached, expires at 
+43: Responding "HTTP/1.1 200 OK"
+44: cached, expires at 
+44: Responding "HTTP/1.1 200 OK"
+67: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:00:26 UTC
+67: in cache, but expired at 
+67: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+68: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:00:26 UTC
+68: Responding "HTTP/1.1 200 Connection Established"
+68: Tunnel closed
+69: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:00:26 UTC
+69: in cache, but expired at 
+69: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+46: Received "HTTP/1.1 200 OK
+Age: 79189
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+46: cached, expires at 
+46: Responding "HTTP/1.1 200 OK"
+70: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:00:30 UTC
+70: in cache, but expired at 
+70: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+47: Received "HTTP/1.1 200 OK
+Age: 78930
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+47: cached, expires at 
+47: Responding "HTTP/1.1 200 OK"
+71: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:00:33 UTC
+71: in cache, but expired at 
+71: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+48: Received "HTTP/1.1 200 OK
+Age: 78987
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+48: cached, expires at 
+48: Responding "HTTP/1.1 200 OK"
+72: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:01:30 UTC
+72: in cache, but expired at 
+72: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+51: Received "HTTP/1.1 200 OK
+Age: 79001
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+51: cached, expires at 
+51: Responding "HTTP/1.1 200 OK"
+73: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:01:44 UTC
+73: in cache, but expired at 
+73: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+52: Received "HTTP/1.1 200 OK
+Age: 79274
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+52: cached, expires at 
+52: Responding "HTTP/1.1 200 OK"
+74: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:01:55 UTC
+74: in cache, but expired at 
+74: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+53: Received "HTTP/1.1 200 OK
+Age: 79017
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+53: cached, expires at 
+53: Responding "HTTP/1.1 200 OK"
+75: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:02:01 UTC
+75: Responding "HTTP/1.1 200 Connection Established"
+75: Tunnel closed
+76: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:02:01 UTC
+76: Responding "HTTP/1.1 200 Connection Established"
+76: Tunnel closed
+77: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:02:01 UTC
+77: in cache, but expired at 
+77: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+56: Received "HTTP/1.1 200 OK
+Age: 79019
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+56: cached, expires at 
+56: Responding "HTTP/1.1 200 OK"
+78: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:02:02 UTC
+78: in cache, but expired at 
+78: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+57: Received "HTTP/1.1 200 OK
+Age: 79293
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+57: cached, expires at 
+57: Responding "HTTP/1.1 200 OK"
+79: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:02:14 UTC
+79: in cache, but expired at 
+79: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+59: Received "HTTP/1.1 200 OK
+Age: 79045
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+59: cached, expires at 
+59: Responding "HTTP/1.1 200 OK"
+80: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:02:28 UTC
+80: in cache, but expired at 
+80: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+62: Received "HTTP/1.1 200 OK
+Age: 79103
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+62: cached, expires at 
+62: Responding "HTTP/1.1 200 OK"
+81: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:03:26 UTC
+81: in cache, but expired at 
+81: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+63: Received "HTTP/1.1 200 OK
+Age: 79160
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+63: cached, expires at 
+63: Responding "HTTP/1.1 200 OK"
+82: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:04:23 UTC
+82: in cache, but expired at 
+82: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+64: Received "HTTP/1.1 200 OK
+Age: 79161
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+64: cached, expires at 
+64: Responding "HTTP/1.1 200 OK"
+83: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:04:24 UTC
+83: Responding "HTTP/1.1 200 Connection Established"
+83: Tunnel closed
+84: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:04:25 UTC
+84: Responding "HTTP/1.1 200 Connection Established"
+84: Tunnel closed
+85: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:04:25 UTC
+85: in cache, but expired at 
+85: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+65: Received "HTTP/1.1 200 OK
+Age: 79248
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+65: cached, expires at 
+65: Responding "HTTP/1.1 200 OK"
+86: "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from 127.0.0.1 @ 2025-03-02 22:05:51 UTC
+86: not in cache
+86: Requesting "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from www.mocky.io
+86: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 22:05:52 GMT
+Sozu-Id: 01JNCE9TKJYSRGHT5PZ14CFSVT
+
+[binary data]" from www.mocky.io
+86: Responding "HTTP/1.1 404 Not Found"
+87: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:08:52 UTC
+87: in cache, but expired at 
+87: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+66: Received "HTTP/1.1 200 OK
+Age: 79532
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+66: cached, expires at 
+66: Responding "HTTP/1.1 200 OK"
+88: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:35 UTC
+88: Responding "HTTP/1.1 200 Connection Established"
+88: Tunnel closed
+89: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:35 UTC
+89: in cache, but expired at 
+89: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+67: Received "HTTP/1.1 200 OK
+Age: 79534
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+67: cached, expires at 
+67: Responding "HTTP/1.1 200 OK"
+90: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:37 UTC
+90: in cache, but expired at 
+90: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+69: Received "HTTP/1.1 200 OK
+Age: 79534
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+69: cached, expires at 
+69: Responding "HTTP/1.1 200 OK"
+91: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:37 UTC
+91: in cache, but expired at 
+91: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+70: Received "HTTP/1.1 200 OK
+Age: 79537
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+70: cached, expires at 
+70: Responding "HTTP/1.1 200 OK"
+92: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:40 UTC
+92: in cache, but expired at 
+92: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+71: Received "HTTP/1.1 200 OK
+Age: 79540
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+71: cached, expires at 
+71: Responding "HTTP/1.1 200 OK"
+93: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:43 UTC
+93: Responding "HTTP/1.1 200 Connection Established"
+93: Tunnel closed
+94: "CONNECT www.facebook.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:44 UTC
+94: Responding "HTTP/1.1 200 Connection Established"
+94: Tunnel closed
+95: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:44 UTC
+95: Responding "HTTP/1.1 200 Connection Established"
+95: Tunnel closed
+96: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:10:44 UTC
+96: in cache, but expired at 
+96: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+72: Received "HTTP/1.1 200 OK
+Age: 79859
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+72: cached, expires at 
+72: Responding "HTTP/1.1 200 OK"
+97: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:11:40 UTC
+97: Responding "HTTP/1.1 200 Connection Established"
+97: Tunnel closed
+98: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:11:40 UTC
+98: in cache, but expired at 
+98: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+73: Received "HTTP/1.1 200 OK
+Age: 79611
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+73: cached, expires at 
+73: Responding "HTTP/1.1 200 OK"
+99: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:11:54 UTC
+99: in cache, but expired at 
+99: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+74: Received "HTTP/1.1 200 OK
+Age: 79885
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+74: cached, expires at 
+74: Responding "HTTP/1.1 200 OK"
+100: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:12:06 UTC
+100: Responding "HTTP/1.1 200 Connection Established"
+100: Tunnel closed
+101: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:12:06 UTC
+101: in cache, but expired at 
+101: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+77: Received "HTTP/1.1 200 OK
+Age: 79628
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+77: cached, expires at 
+77: Responding "HTTP/1.1 200 OK"
+102: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:12:11 UTC
+102: in cache, but expired at 
+102: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+78: Received "HTTP/1.1 200 OK
+Age: 79891
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+78: cached, expires at 
+78: Responding "HTTP/1.1 200 OK"
+103: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:12:12 UTC
+103: in cache, but expired at 
+103: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+79: Received "HTTP/1.1 200 OK
+Age: 79903
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+79: cached, expires at 
+79: Responding "HTTP/1.1 200 OK"
+104: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:12:24 UTC
+104: in cache, but expired at 
+104: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+80: Received "HTTP/1.1 200 OK
+Age: 79917
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+80: cached, expires at 
+80: Responding "HTTP/1.1 200 OK"
+105: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:12:38 UTC
+105: in cache, but expired at 
+105: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+81: Received "HTTP/1.1 200 OK
+Age: 79975
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+81: cached, expires at 
+81: Responding "HTTP/1.1 200 OK"
+106: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:13:36 UTC
+106: Responding "HTTP/1.1 200 Connection Established"
+106: Tunnel closed
+107: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:13:37 UTC
+107: in cache, but expired at 
+107: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+82: Received "HTTP/1.1 200 OK
+Age: 79770
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+82: cached, expires at 
+82: Responding "HTTP/1.1 200 OK"
+108: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:14:33 UTC
+108: in cache, but expired at 
+108: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+85: Received "HTTP/1.1 200 OK
+Age: 79772
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+85: cached, expires at 
+85: Responding "HTTP/1.1 200 OK"
+109: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:14:35 UTC
+109: in cache, but expired at 
+109: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+87: Received "HTTP/1.1 200 OK
+Age: 80301
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+87: cached, expires at 
+87: Responding "HTTP/1.1 200 OK"
+110: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:19:02 UTC
+110: in cache, but expired at 
+110: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+89: Received "HTTP/1.1 200 OK
+Age: 80404
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+89: cached, expires at 
+89: Responding "HTTP/1.1 200 OK"
+111: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:20:45 UTC
+111: in cache, but expired at 
+111: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+90: Received "HTTP/1.1 200 OK
+Age: 80406
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+90: cached, expires at 
+90: Responding "HTTP/1.1 200 OK"
+112: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:20:47 UTC
+112: in cache, but expired at 
+112: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+91: Received "HTTP/1.1 200 OK
+Age: 80406
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+91: cached, expires at 
+91: Responding "HTTP/1.1 200 OK"
+113: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:20:47 UTC
+113: in cache, but expired at 
+113: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+92: Received "HTTP/1.1 200 OK
+Age: 80147
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+92: cached, expires at 
+92: Responding "HTTP/1.1 200 OK"
+114: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:20:50 UTC
+114: in cache, but expired at 
+114: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+96: Received "HTTP/1.1 200 OK
+Age: 80413
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+96: cached, expires at 
+96: Responding "HTTP/1.1 200 OK"
+115: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:20:54 UTC
+115: Responding "HTTP/1.1 200 Connection Established"
+115: Tunnel closed
+116: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:20:54 UTC
+116: in cache, but expired at 
+116: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+98: Received "HTTP/1.1 200 OK
+Age: 80469
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+98: cached, expires at 
+98: Responding "HTTP/1.1 200 OK"
+117: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:21:50 UTC
+117: in cache, but expired at 
+117: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+99: Received "HTTP/1.1 200 OK
+Age: 80221
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+99: cached, expires at 
+99: Responding "HTTP/1.1 200 OK"
+118: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:05 UTC
+118: in cache, but expired at 
+118: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+101: Received "HTTP/1.1 200 OK
+Age: 80495
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+101: cached, expires at 
+101: Responding "HTTP/1.1 200 OK"
+119: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:16 UTC
+119: Responding "HTTP/1.1 200 Connection Established"
+119: Tunnel closed
+120: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:16 UTC
+120: in cache, but expired at 
+120: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+102: Received "HTTP/1.1 200 OK
+Age: 80238
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+102: cached, expires at 
+102: Responding "HTTP/1.1 200 OK"
+121: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:21 UTC
+121: in cache, but expired at 
+121: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+103: Received "HTTP/1.1 200 OK
+Age: 80239
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+103: cached, expires at 
+103: Responding "HTTP/1.1 200 OK"
+122: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:22 UTC
+122: in cache, but expired at 
+122: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+104: Received "HTTP/1.1 200 OK
+Age: 80251
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+104: cached, expires at 
+104: Responding "HTTP/1.1 200 OK"
+123: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:34 UTC
+123: in cache, but expired at 
+123: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+105: Received "HTTP/1.1 200 OK
+Age: 80527
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+105: cached, expires at 
+105: Responding "HTTP/1.1 200 OK"
+124: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:22:48 UTC
+124: in cache, but expired at 
+124: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+107: Received "HTTP/1.1 200 OK
+Age: 80586
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+107: cached, expires at 
+107: Responding "HTTP/1.1 200 OK"
+125: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:23:47 UTC
+125: Responding "HTTP/1.1 200 Connection Established"
+125: Tunnel closed
+126: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:23:47 UTC
+126: Responding "HTTP/1.1 200 Connection Established"
+126: Tunnel closed
+127: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:23:47 UTC
+127: Responding "HTTP/1.1 200 Connection Established"
+127: Tunnel closed
+128: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:23:47 UTC
+128: Responding "HTTP/1.1 200 Connection Established"
+128: Tunnel closed
+129: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:23:47 UTC
+129: Responding "HTTP/1.1 200 Connection Established"
+129: Tunnel closed
+130: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:23:47 UTC
+130: in cache, but expired at 
+130: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+108: Received "HTTP/1.1 200 OK
+Age: 80380
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+108: cached, expires at 
+108: Responding "HTTP/1.1 200 OK"
+131: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:24:43 UTC
+131: Responding "HTTP/1.1 200 Connection Established"
+131: Tunnel closed
+132: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:24:43 UTC
+132: in cache, but expired at 
+132: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+109: Received "HTTP/1.1 200 OK
+Age: 80644
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+109: cached, expires at 
+109: Responding "HTTP/1.1 200 OK"
+133: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:24:45 UTC
+133: in cache, but expired at 
+133: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+110: Received "HTTP/1.1 200 OK
+Age: 80911
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+110: cached, expires at 
+110: Responding "HTTP/1.1 200 OK"
+134: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:29:12 UTC
+134: in cache, but expired at 
+134: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+111: Received "HTTP/1.1 200 OK
+Age: 80752
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+111: cached, expires at 
+111: Responding "HTTP/1.1 200 OK"
+135: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:55 UTC
+135: Responding "HTTP/1.1 200 Connection Established"
+135: Tunnel closed
+136: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:55 UTC
+136: in cache, but expired at 
+136: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+112: Received "HTTP/1.1 200 OK
+Age: 80754
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+113: Received "HTTP/1.1 200 OK
+Age: 80754
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+113: cached, expires at 
+113: Responding "HTTP/1.1 200 OK"
+112: cached, expires at 
+112: Responding "HTTP/1.1 200 OK"
+137: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:57 UTC
+137: in cache, but expired at 
+137: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+138: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:57 UTC
+138: Responding "HTTP/1.1 200 Connection Established"
+138: Tunnel closed
+139: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:57 UTC
+139: Responding "HTTP/1.1 200 Connection Established"
+139: Tunnel closed
+140: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:57 UTC
+140: Responding "HTTP/1.1 200 Connection Established"
+140: Tunnel closed
+141: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:57 UTC
+141: Responding "HTTP/1.1 200 Connection Established"
+141: Tunnel closed
+142: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:30:57 UTC
+142: in cache, but expired at 
+142: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+114: Received "HTTP/1.1 200 OK
+Age: 80757
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+114: cached, expires at 
+114: Responding "HTTP/1.1 200 OK"
+143: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:31:00 UTC
+143: Responding "HTTP/1.1 200 Connection Established"
+143: Tunnel closed
+144: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:31:00 UTC
+144: in cache, but expired at 
+144: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+116: Received "HTTP/1.1 200 OK
+Age: 80761
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+116: cached, expires at 
+116: Responding "HTTP/1.1 200 OK"
+145: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:31:04 UTC
+145: in cache, but expired at 
+145: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+117: Received "HTTP/1.1 200 OK
+Age: 81080
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+117: cached, expires at 
+117: Responding "HTTP/1.1 200 OK"
+146: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:01 UTC
+146: in cache, but expired at 
+146: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+118: Received "HTTP/1.1 200 OK
+Age: 80832
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+118: cached, expires at 
+118: Responding "HTTP/1.1 200 OK"
+147: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:15 UTC
+147: in cache, but expired at 
+147: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+120: Received "HTTP/1.1 200 OK
+Age: 80843
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+120: cached, expires at 
+120: Responding "HTTP/1.1 200 OK"
+148: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:26 UTC
+148: in cache, but expired at 
+148: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+121: Received "HTTP/1.1 200 OK
+Age: 80848
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+121: cached, expires at 
+121: Responding "HTTP/1.1 200 OK"
+149: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:31 UTC
+149: Responding "HTTP/1.1 200 Connection Established"
+149: Tunnel closed
+150: "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from 127.0.0.1 @ 2025-03-02 22:32:31 UTC
+150: not in cache
+150: Requesting "GET http://www.mocky.io/v2/5e5892de2f00006d0b961fdc HTTP/1.1" from www.mocky.io
+122: Received "HTTP/1.1 200 OK
+Age: 80849
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+122: cached, expires at 
+122: Responding "HTTP/1.1 200 OK"
+151: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:32 UTC
+151: Responding "HTTP/1.1 200 Connection Established"
+151: Tunnel closed
+152: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:32 UTC
+152: Responding "HTTP/1.1 200 Connection Established"
+152: Tunnel closed
+153: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:32 UTC
+153: Responding "HTTP/1.1 200 Connection Established"
+153: Tunnel closed
+154: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:32 UTC
+154: in cache, but expired at 
+154: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+123: Received "HTTP/1.1 200 OK
+Age: 80861
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+123: cached, expires at 
+123: Responding "HTTP/1.1 200 OK"
+155: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:44 UTC
+155: Responding "HTTP/1.1 200 Connection Established"
+155: Tunnel closed
+156: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:44 UTC
+156: in cache, but expired at 
+156: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+124: Received "HTTP/1.1 200 OK
+Age: 80875
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+124: cached, expires at 
+124: Responding "HTTP/1.1 200 OK"
+157: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:32:58 UTC
+157: in cache, but expired at 
+157: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+130: Received "HTTP/1.1 200 OK
+Age: 80934
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+130: cached, expires at 
+130: Responding "HTTP/1.1 200 OK"
+158: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:33:57 UTC
+158: in cache, but expired at 
+158: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+132: Received "HTTP/1.1 200 OK
+Age: 81252
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+132: cached, expires at 
+132: Responding "HTTP/1.1 200 OK"
+159: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:34:53 UTC
+159: in cache, but expired at 
+159: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+133: Received "HTTP/1.1 200 OK
+Age: 80992
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+133: cached, expires at 
+133: Responding "HTTP/1.1 200 OK"
+160: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:34:55 UTC
+160: in cache, but expired at 
+160: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+150: Received "HTTP/1.1 404 Not Found
+Content-Length: 0
+Date: Sun, 02 Mar 2025 22:32:31 GMT
+Sozu-Id: 01JNCFTMW0J997V65TK2G3C6RW
+
+[binary data]" from www.mocky.io
+150: Responding "HTTP/1.1 404 Not Found"
+161: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:31 UTC
+161: Responding "HTTP/1.1 200 Connection Established"
+161: Tunnel closed
+162: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:31 UTC
+162: Responding "HTTP/1.1 200 Connection Established"
+162: Tunnel closed
+163: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:32 UTC
+163: Responding "HTTP/1.1 200 Connection Established"
+163: Tunnel closed
+164: "CONNECT merino.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:32 UTC
+164: Responding "HTTP/1.1 200 Connection Established"
+164: Tunnel closed
+165: "CONNECT merino.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:32 UTC
+165: Responding "HTTP/1.1 200 Connection Established"
+165: Tunnel closed
+166: "CONNECT merino.services.mozilla.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:32 UTC
+166: Responding "HTTP/1.1 200 Connection Established"
+166: Tunnel closed
+167: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:32 UTC
+167: Responding "HTTP/1.1 200 Connection Established"
+167: Tunnel closed
+168: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:35:32 UTC
+168: in cache, but expired at 
+168: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+134: Received "HTTP/1.1 200 OK
+Age: 81259
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+134: cached, expires at 
+134: Responding "HTTP/1.1 200 OK"
+169: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:39:22 UTC
+169: Responding "HTTP/1.1 200 Connection Established"
+169: Tunnel closed
+170: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:39:22 UTC
+170: in cache, but expired at 
+170: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+136: Received "HTTP/1.1 200 OK
+Age: 81362
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+136: cached, expires at 
+136: Responding "HTTP/1.1 200 OK"
+171: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:05 UTC
+171: in cache, but expired at 
+171: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+137: Received "HTTP/1.1 200 OK
+Age: 81626
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+137: cached, expires at 
+137: Responding "HTTP/1.1 200 OK"
+172: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:07 UTC
+172: in cache, but expired at 
+172: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+142: Received "HTTP/1.1 200 OK
+Age: 81364
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+142: cached, expires at 
+142: Responding "HTTP/1.1 200 OK"
+173: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:07 UTC
+173: in cache, but expired at 
+173: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+144: Received "HTTP/1.1 200 OK
+Age: 81629
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+144: cached, expires at 
+144: Responding "HTTP/1.1 200 OK"
+174: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:10 UTC
+174: in cache, but expired at 
+174: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+145: Received "HTTP/1.1 200 OK
+Age: 81633
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+145: cached, expires at 
+145: Responding "HTTP/1.1 200 OK"
+175: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:14 UTC
+175: Responding "HTTP/1.1 200 Connection Established"
+175: Tunnel closed
+176: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:14 UTC
+176: Responding "HTTP/1.1 200 Connection Established"
+176: Tunnel closed
+177: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:14 UTC
+177: Responding "HTTP/1.1 200 Connection Established"
+177: Tunnel closed
+178: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:14 UTC
+178: Responding "HTTP/1.1 200 Connection Established"
+178: Tunnel closed
+179: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:41:14 UTC
+179: in cache, but expired at 
+179: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+146: Received "HTTP/1.1 200 OK
+Age: 81690
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+146: cached, expires at 
+146: Responding "HTTP/1.1 200 OK"
+180: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:42:11 UTC
+180: Responding "HTTP/1.1 200 Connection Established"
+180: Tunnel closed
+181: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:42:11 UTC
+181: in cache, but expired at 
+181: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+147: Received "HTTP/1.1 200 OK
+Age: 81704
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+147: cached, expires at 
+147: Responding "HTTP/1.1 200 OK"
+182: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:42:25 UTC
+182: in cache, but expired at 
+182: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+148: Received "HTTP/1.1 200 OK
+Age: 81715
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+148: cached, expires at 
+148: Responding "HTTP/1.1 200 OK"
+183: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:42:36 UTC
+183: in cache, but expired at 
+183: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+154: Received "HTTP/1.1 200 OK
+Age: 81459
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+154: cached, expires at 
+154: Responding "HTTP/1.1 200 OK"
+184: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:42:42 UTC
+184: in cache, but expired at 
+184: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+156: Received "HTTP/1.1 200 OK
+Age: 81472
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+156: cached, expires at 
+156: Responding "HTTP/1.1 200 OK"
+185: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:42:55 UTC
+185: in cache, but expired at 
+185: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+157: Received "HTTP/1.1 200 OK
+Age: 81485
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+157: cached, expires at 
+157: Responding "HTTP/1.1 200 OK"
+186: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:43:08 UTC
+186: Responding "HTTP/1.1 200 Connection Established"
+186: Tunnel closed
+187: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:43:08 UTC
+187: Responding "HTTP/1.1 200 Connection Established"
+187: Tunnel closed
+188: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:43:08 UTC
+188: Responding "HTTP/1.1 200 Connection Established"
+188: Tunnel closed
+189: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:43:08 UTC
+189: Responding "HTTP/1.1 200 Connection Established"
+189: Tunnel closed
+190: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:43:08 UTC
+190: in cache, but expired at 
+190: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+158: Received "HTTP/1.1 200 OK
+Age: 81544
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+158: cached, expires at 
+158: Responding "HTTP/1.1 200 OK"
+191: "CONNECT ads.mozilla.org:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:44:07 UTC
+191: Responding "HTTP/1.1 200 Connection Established"
+191: Tunnel closed
+192: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:44:07 UTC
+192: in cache, but expired at 
+192: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+159: Received "HTTP/1.1 200 OK
+Age: 81862
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+159: cached, expires at 
+159: Responding "HTTP/1.1 200 OK"
+193: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:45:03 UTC
+193: in cache, but expired at 
+193: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+160: Received "HTTP/1.1 200 OK
+Age: 81602
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+160: cached, expires at 
+160: Responding "HTTP/1.1 200 OK"
+194: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:45:05 UTC
+194: Responding "HTTP/1.1 200 Connection Established"
+194: Tunnel closed
+195: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:45:05 UTC
+195: in cache, but expired at 
+195: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+168: Received "HTTP/1.1 200 OK
+Age: 81901
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:50:31 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+168: cached, expires at 
+168: Responding "HTTP/1.1 200 OK"
+196: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:45:42 UTC
+196: in cache, but expired at 
+196: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+170: Received "HTTP/1.1 200 OK
+Age: 81869
+Cache-Control: public,must-revalidate,max-age=0,s-maxage=3600
+Content-Length: 90
+Content-Type: text/html
+Date: Sat, 01 Mar 2025 23:54:53 GMT
+Server: nginx
+Via: 1.1 google
+
+<meta http-equiv="refresh" content="0;url=https://support.mozilla.org/kb/captive-portal"/>" from detectportal.firefox.com
+170: cached, expires at 
+170: Responding "HTTP/1.1 200 OK"
+197: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 172.22.0.1 @ 2025-03-02 22:49:33 UTC
+197: in cache, but expired at 
+197: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
